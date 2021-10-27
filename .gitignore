@@ -24,7 +24,7 @@ ExportedObj/
 *.pdb
 *.opendb
 *.VC.db
-/TerrainLayers
+TerrainLayers/*
 *.log
 
 # Unity3D generated meta files
