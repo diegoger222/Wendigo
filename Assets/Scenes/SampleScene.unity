@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.54956007, g: 0.7960085, b: 0.9693051, a: 1}
+  m_IndirectSpecularColor: {r: 0.54975057, g: 0.7961513, b: 0.9688135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5390,6 +5390,7 @@ GameObject:
   - component: {fileID: 1509364453}
   - component: {fileID: 1509364452}
   - component: {fileID: 1509364450}
+  - component: {fileID: 1509364451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5415,6 +5416,20 @@ MonoBehaviour:
   runSpeed: 10
   rotationSensibility: 10
   jumpHeight: 1.9
+--- !u!136 &1509364451
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509364449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.017336
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0139761, z: 0}
 --- !u!143 &1509364452
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5441,7 +5456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509364449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 704.54, y: 21.292, z: 688.6923}
+  m_LocalPosition: {x: 711.02, y: 22.65, z: 683.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 857122723}
