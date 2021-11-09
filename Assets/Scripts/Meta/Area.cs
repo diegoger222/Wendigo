@@ -73,8 +73,8 @@ public class Area : MonoBehaviour
     {
         if(this.inside)
         {
-            Area.player.area = gameObject.name;
-            Area.player.time_in_area = 0;
+          //  Area.player.area = gameObject.name;
+          //  Area.player.time_in_area = 0;
 
             // Generate the wendigo, and set the wendigo's area to the player's area
             // randomly
@@ -96,7 +96,7 @@ public class Area : MonoBehaviour
 
             print("Entered inside area " + gameObject.name);
         } else {
-            Area.player.area = "";
+         //   Area.player.area = "";
 
             print("Entered outside area");
         }
@@ -111,7 +111,7 @@ public class Area : MonoBehaviour
 
             print("Exit inside area " + gameObject.name);
         } else {
-            Area.player.area = "";
+           // Area.player.area = "";
 
             print("Exit outside area");
         }
