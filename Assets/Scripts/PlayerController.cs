@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump")]
     public float jumpHeight = 1.9f;
+    public float prev_y = 0.0f;
 
     private float cameraVerticalAngle;
     Vector3 moveInput = Vector3.zero;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             moveInput = Vector3.ClampMagnitude(moveInput, 1f);
+            prev_y = moveInput.y;   //Esto está puesto para poder visualizar cuándo para de caer. No hace falta en sí.
 
             if (Input.GetButton("Sprint"))
             {
@@ -57,6 +59,24 @@ public class PlayerController : MonoBehaviour
             {
                 moveInput.y = Mathf.Sqrt(jumpHeight * -2f * gravityScale);
             }
+        }
+        //Poder cambiar de dirección en el aire (sprint incluído).
+        else
+        {
+            prev_y = moveInput.y;
+            moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            moveInput = Vector3.ClampMagnitude(moveInput, 1f);
+
+            if (Input.GetButton("Sprint"))
+            {
+                moveInput = transform.TransformDirection(moveInput) * runSpeed;
+            }
+            else
+            {
+                moveInput = transform.TransformDirection(moveInput) * walkSpeed;
+            }
+
+            moveInput.y = prev_y;
         }
 
         moveInput.y += gravityScale * Time.deltaTime;
