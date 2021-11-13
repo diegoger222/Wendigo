@@ -31,13 +31,7 @@ public class DisparoArma : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("1"))
-        {
-            pistola.SetActive(false);
-        }
-        if (Input.GetButton("2"))
-        {
-            pistola.SetActive(true);
-        }
+        
+     
     }
 }
