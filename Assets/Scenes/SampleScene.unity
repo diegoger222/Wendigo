@@ -17940,7 +17940,7 @@ MonoBehaviour:
   pistola: {fileID: 1529763841}
   shotForce: 1500
   shotRate: 0.5
-  recoilForce: 4
+  recoilForce: 10
 --- !u!4 &1535729068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cffd35361a9ea044e8715024748615d9,
