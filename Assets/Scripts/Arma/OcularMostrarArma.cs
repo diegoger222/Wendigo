@@ -14,8 +14,8 @@ public class OcularMostrarArma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Ocultar/MostrarArma"))
-        {
+        if (Input.GetKeyDown("x"))
+        { 
             if (escopeta.activeSelf)
             {
                 escopeta.SetActive(false);
