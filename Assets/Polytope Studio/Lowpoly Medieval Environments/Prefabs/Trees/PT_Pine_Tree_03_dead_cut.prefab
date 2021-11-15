@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8929534066692114925}
   - component: {fileID: 6631801851526135079}
   - component: {fileID: 2466522383670316070}
+  - component: {fileID: -5346042013341153970}
   m_Layer: 0
   m_Name: PT_Pine_Tree_03_dead_cut
   m_TagString: Untagged
@@ -96,3 +97,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1780260721220084313, guid: 021e9eaa88033da4c94bcdeddffe6562, type: 3}
+--- !u!136 &-5346042013341153970
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118368282202709234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.16
+  m_Height: 16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
