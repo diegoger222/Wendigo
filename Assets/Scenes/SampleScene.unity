@@ -17367,6 +17367,8 @@ MonoBehaviour:
   rotationSensibility: 60
   jumpHeight: 1.9
   prev_y: 0
+  contadorGrounded: 0
+  retardoJump: 6
 --- !u!136 &1509364451
 CapsuleCollider:
   m_ObjectHideFlags: 0
