@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Datos salto")]
     public float prev_y = 0.0f;
-    public int contadorGrounded = 0;        //Contador para permitir saltar un poco después de no tocar el suelo (ayuda a la jugabilidad)
+    public int contadorGrounded = 0;        //Contador para permitir saltar un poco despuï¿½s de no tocar el suelo (ayuda a la jugabilidad)
     public int retardoJump = 6;
 
     private float cameraVerticalAngle;
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         Look();
         Move();
+        Screen.lockCursor=true;
     }
 
     private void Move()
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
             contadorGrounded = 0;
             moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             moveInput = Vector3.ClampMagnitude(moveInput, 1f);
-            prev_y = moveInput.y;   //Esto está puesto para poder visualizar cuándo para de caer. No hace falta en sí.
+            prev_y = moveInput.y;   //Esto estï¿½ puesto para poder visualizar cuï¿½ndo para de caer. No hace falta en sï¿½.
 
             if (Input.GetButton("Sprint"))
             {
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 contadorGrounded = retardoJump + 1;
             }
         }
-        //Poder cambiar de dirección en el aire (sprint incluído).
+        //Poder cambiar de direcciï¿½n en el aire (sprint incluï¿½do).
         else if (contadorGrounded < retardoJump) {
             if (Input.GetButtonDown("Jump"))
             {
