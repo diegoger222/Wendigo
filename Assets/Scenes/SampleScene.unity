@@ -8468,8 +8468,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 262111961}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1529763842}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9768,7 +9768,7 @@ Transform:
   - {fileID: 1568457612}
   - {fileID: 640058373}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &837294786
 PrefabInstance:
@@ -10025,6 +10025,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571, type: 3}
+--- !u!1 &840901648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 50754954277266222, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571,
+    type: 3}
+  m_PrefabInstance: {fileID: 840901647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &840901649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1599826595754709761, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571,
+    type: 3}
+  m_PrefabInstance: {fileID: 840901647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &840901650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7640558969779515294, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571,
+    type: 3}
+  m_PrefabInstance: {fileID: 840901647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &840901651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571,
+    type: 3}
+  m_PrefabInstance: {fileID: 840901647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &840901652
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840901648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -470067213634067786, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571, type: 3}
+--- !u!64 &840901653
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840901649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2212009239438826721, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571, type: 3}
+--- !u!64 &840901654
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840901650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5053925668127403250, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571, type: 3}
+--- !u!64 &840901655
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840901651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4493585093827132993, guid: bc47c0dfe8c8a3a478edbbdb3e2d0571, type: 3}
 --- !u!1001 &848081993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19431,7 +19511,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1436731215
 PrefabInstance:
@@ -20475,8 +20555,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.017336
+  m_Radius: 0.3
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.0139761, z: 0}
 --- !u!143 &1509364452
@@ -21036,7 +21116,7 @@ MonoBehaviour:
   bullet: {fileID: 6478533887442054907, guid: c63a74e4fef534645933687c59165e5e, type: 3}
   spawnPoint: {fileID: 271506324}
   pistola: {fileID: 1529763841}
-  shotForce: 1500
+  shotForce: 3000
   shotRate: 0.5
   recoilForce: 10
 --- !u!4 &1535729068 stripped
@@ -26654,7 +26734,7 @@ Transform:
   - {fileID: 1858752480}
   - {fileID: 62534143}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1964667166
 PrefabInstance:

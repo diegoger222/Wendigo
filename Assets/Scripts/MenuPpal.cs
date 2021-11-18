@@ -36,9 +36,9 @@ public class MenuPpal : MonoBehaviour
 
     public void EmpezarJuego()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        //SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
 
-       // asyncLoad = SceneManager.LoadSceneAsync("SampleScene", LoadSceneMode.Single);
+       asyncLoad = SceneManager.LoadSceneAsync("SampleScene", LoadSceneMode.Single);
 
     }
 
