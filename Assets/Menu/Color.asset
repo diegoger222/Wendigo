@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Color
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0.3924528, g: 0.71634525, b: 0.9811321, a: 1}
-  topRight: {r: 0.39215687, g: 0.7176471, b: 0.98039216, a: 1}
+  topLeft: {r: 1, g: 1, b: 1, a: 1}
+  topRight: {r: 1, g: 1, b: 1, a: 1}
   bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-  bottomRight: {r: 0.19807759, g: 0.25309616, b: 0.9811321, a: 1}
+  bottomRight: {r: 1, g: 1, b: 1, a: 1}
