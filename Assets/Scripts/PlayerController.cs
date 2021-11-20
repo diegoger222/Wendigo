@@ -31,7 +31,9 @@ public class PlayerController : MonoBehaviour
     Vector3 rotationinput = Vector3.zero;
     CharacterController characterController;
 
-    public DisparoArma DA;
+    [Header("GameObjects y esas cosas")]
+    public DisparoArma DisparoArma;
+    public GameObject escopeta;
 
     private void Awake()
     {
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
             contadorGrounded = 0;
             moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             moveInput = Vector3.ClampMagnitude(moveInput, 1f);
-            prev_y = moveInput.y;   //Esto est� puesto para poder visualizar cu�ndo para de caer. No hace falta en s�.
+            prev_y = moveInput.y;   //Esto esta puesto para poder visualizar cuando para de caer. No hace falta en si.
 
             if (Input.GetButton("Sprint"))
             {
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviour
                 contadorGrounded = retardoJump + 1;
             }
         }
-        //Poder cambiar de direcci�n en el aire (sprint inclu�do).
+        //Poder cambiar de direccion en el aire (sprint incluido).
         else if (contadorGrounded < retardoJump) {
             if (Input.GetButtonDown("Jump"))
             {
@@ -115,7 +117,8 @@ public class PlayerController : MonoBehaviour
 
     private void PressedButtons()
     {
-        if (Input.GetKeyDown(KeyCode.R)) { DA.Recharge(); } //Recargar Arma
+        if (Input.GetKeyDown(KeyCode.R)) { DisparoArma.Recharge(); } //Recargar Arma
+        if (Input.GetKeyDown(KeyCode.X)) { escopeta.SetActive(!escopeta.activeSelf); }   //Ocultar-Mostar Arma 
         if (Input.GetKeyDown(KeyCode.P)) {if (Time.timeScale != 0) Time.timeScale = 0; else Time.timeScale = 1;}   //Pausa
         if (Input.GetKeyDown(KeyCode.E)) {; }   //Abrir Inventario
         if (Input.GetKeyDown(KeyCode.F)) {; }   //Acciona con el mapa. Sirve para recoger elementos y/o comerciar.
