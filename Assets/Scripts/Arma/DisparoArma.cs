@@ -9,17 +9,18 @@ public class DisparoArma : MonoBehaviour
     public Transform spawnPoint;
     public GameObject pistola;
 
+    [Header("Disparo")]
     public float shotForce = 1500;     //Relacionado con el disparo
-    public float shotRate = 0.6f;
     public float recoilForce = 4f;
-
+    public float shotRate = 0.6f;
     private float shotRateTime = 0;
 
+    [Header("Recarga")]
     public float rechargeRate = 1.3f;       //Relacionado con recargar
-    public float rechargeRateTime = 0;
-    public int shotCounter = 0;
+    private float rechargeRateTime = 0;
+    private int shotCounter = 0;
     public int numberOfShots = 2;
-    public bool recharging = false;
+    private bool recharging = false;
 
 
     // Update is called once per frame
@@ -62,7 +63,7 @@ public class DisparoArma : MonoBehaviour
     }
 
     public void Recharge() {
-        if (!recharging) { rechargeRateTime = Time.time + rechargeRate; recharging = true; }
+        if (!recharging && shotCounter != 0) { rechargeRateTime = Time.time + rechargeRate; recharging = true; } //Si ya estas recargando o tienes a tope las balas, no empiezas a recargar.
         if (Time.time > rechargeRateTime) { shotCounter = 0; recharging = false; }
     }
     private void AddRecoil()
