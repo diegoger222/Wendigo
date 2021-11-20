@@ -18,9 +18,9 @@ public class DisparoArma : MonoBehaviour
     [Header("Recarga")]
     public float rechargeRate = 1.3f;       //Relacionado con recargar
     private float rechargeRateTime = 0;
-    private int shotCounter = 0;
+    public int shotCounter = 0;
     public int numberOfShots = 2;
-    private bool recharging = false;
+    public bool recharging = false;
 
 
     // Update is called once per frame
@@ -50,22 +50,31 @@ public class DisparoArma : MonoBehaviour
                 } 
                 shotRateTime = Time.time + shotRate;
                 shotCounter++;
-            }
 
-            if (shotCounter == numberOfShots)       //Si he gastado los disparos, recargo automaticamente
-            {
-                Recharge();
+                if (shotCounter == numberOfShots) { Recharge(); } //Si he gastado los disparos, recargo automaticamente
             }
+            
         }
 
-        
-     
+        //Tenemos que ir actualizando el estado de la recarga
+        if (recharging) { UpdateRecharge(); }
+
     }
 
-    public void Recharge() {
-        if (!recharging && shotCounter != 0) { rechargeRateTime = Time.time + rechargeRate; recharging = true; } //Si ya estas recargando o tienes a tope las balas, no empiezas a recargar.
-        if (Time.time > rechargeRateTime) { shotCounter = 0; recharging = false; }
+
+
+    //! Metodos Auxiliares
+    public void Recharge() //Si ya estas recargando o tienes a tope las balas, no empiezas a recargar.
+    { 
+        if (!recharging && shotCounter != 0) { rechargeRateTime = Time.time + rechargeRate; recharging = true; }  
     }
+
+    private void UpdateRecharge() //Cuando pase el tiempo establecido, se completara la recarga.
+    { 
+        if (Time.time > rechargeRateTime) { shotCounter = 0; recharging = false; } 
+    }
+
+
     private void AddRecoil()
     {
         transform.Rotate(-recoilForce, 0f, 0f);
