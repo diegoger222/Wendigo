@@ -9,16 +9,18 @@ public class DisparoArma : MonoBehaviour
     public Transform spawnPoint;
     public GameObject pistola;
 
-    public float shotForce = 1500;
+    public float shotForce = 1500;     //Relacionado con el disparo
     public float shotRate = 0.6f;
     public float recoilForce = 4f;
 
-    public float rechargeRate = 1.3f;
-    public float rechargeRateTime = 0;
-    public int recharging = 0;
-    public int numberOfShots = 2;
-
     private float shotRateTime = 0;
+
+    public float rechargeRate = 1.3f;       //Relacionado con recargar
+    public float rechargeRateTime = 0;
+    public int shotCounter = 0;
+    public int numberOfShots = 2;
+    public bool recharging = false;
+
 
     // Update is called once per frame
    
@@ -32,7 +34,7 @@ public class DisparoArma : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            if (recharging < numberOfShots && Time.time > shotRateTime && pistola.activeSelf)
+            if (shotCounter < numberOfShots && Time.time > shotRateTime && pistola.activeSelf && !recharging)
             {
                 //Vector3 a = transform.localPosition;
                 AddRecoil();
@@ -46,18 +48,22 @@ public class DisparoArma : MonoBehaviour
                     Destroy(newBullet, 2);
                 } 
                 shotRateTime = Time.time + shotRate;
-                rechargeRateTime = Time.time + rechargeRate;
-                recharging++;
+                shotCounter++;
             }
 
-            if (recharging == numberOfShots && Time.time > rechargeRateTime)
+            if (shotCounter == numberOfShots)       //Si he gastado los disparos, recargo automaticamente
             {
-                recharging = 0;
+                Recharge();
             }
         }
 
         
      
+    }
+
+    public void Recharge() {
+        if (!recharging) { rechargeRateTime = Time.time + rechargeRate; recharging = true; }
+        if (Time.time > rechargeRateTime) { shotCounter = 0; recharging = false; }
     }
     private void AddRecoil()
     {
