@@ -34,7 +34,7 @@ public class DisparoArma : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            if (shotCounter < numberOfShots && Time.time > shotRateTime && pistola.activeSelf && !recharging)
+            if (!recharging && Time.time > shotRateTime && pistola.activeSelf)
             {
                 //Vector3 a = transform.localPosition;
                 AddRecoil();
