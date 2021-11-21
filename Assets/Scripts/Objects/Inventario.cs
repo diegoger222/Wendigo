@@ -28,40 +28,50 @@ public class Inventario : MonoBehaviour
         
     }
 
-    private bool addToInventory(Item item) {
-        // Caso el objeto es stakeable y ya tienes más de esos objetos en el imventario
+    private Item addToInventory( Item item ) {
+        //Caso objeto único
         if (item.objetoUnico) { 
-            objetosUnicos.Add(item); return true;
+            objetosUnicos.Add(item); return item;
         }
-        else if (item.stackeable && objetos.Contains(item))
-        {
-            if (objetos.Find(x => x.nombre == item.nombre).cantidad + item.cantidad <
-                item.maxCantidad)
-            {
-                objetos.Find(x => x.nombre == item.nombre).cantidad += item.cantidad;
-                return true;
+        //Caso el objeto se puede stakear y ya tienes uno en el inventario que no tiene el maximo de staks
+        else if (item.stackeable && objetos.Find(x => x.nombre == item.nombre && x.cantidad < x.maxCantidad)){
+            int index = objetos.FindIndex(x => x.nombre == item.nombre && x.cantidad < x.maxCantidad); 
+            //Si la suma no se pasa del maximo solo se aumenta el contador
+            if (objetos[index].cantidad + item.cantidad <= item.maxCantidad){
+                objetos[index].cantidad += item.cantidad;
+                item.cantidad = 0;
+                return item;
             }
-            else if (objetos.Find(x => x.nombre == item.nombre).cantidad + item.cantidad >=
-                item.maxCantidad && objetos.Count < numeroSlots)
+            //Si la suma se pasa se pone a maximo ese stack, y si hay espacio se añade otro stack con el numero restante
+            else
             {
-                item.cantidad -= (item.maxCantidad - objetos.Find(x => x.nombre == item.nombre).cantidad);
-                objetos.Find(x => x.nombre == item.nombre).cantidad = item.maxCantidad;
-                if (item.cantidad != 0) { objetos.Add(item); }
-                return true;
+                item.cantidad -= (item.maxCantidad - objetos[index].cantidad);
+                objetos[index].cantidad = objetos[index].maxCantidad;
+                if (objetos.Count < numeroSlots) {
+                    objetos.Add(item);
+                    item.cantidad = 0;
+                }
+                return item;
             }
-            else { return false; }
         }
+        //Caso el objeto no es stakeable o lo es pero no hay ya stacks disponibles
         else if (objetos.Count < numeroSlots)
         {
             objetos.Add(item);
-            return true;
+            item.cantidad = 0;
+            return item;
         }
-
-        else { return false; }
+        //Caso inventario lleno
+        else { return item; }
     }
 
     private void removeItem(Item item) {
         objetos.Remove(item);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 
 }
