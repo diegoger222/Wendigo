@@ -6471,6 +6471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Double-barrel_gun
       objectReference: {fileID: 0}
+    - target: {fileID: 1652954791862484, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
+      propertyPath: m_TagString
+      value: Escopeta
+      objectReference: {fileID: 0}
     - target: {fileID: 4781552677805482, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
       propertyPath: m_RootOrder
       value: 0
