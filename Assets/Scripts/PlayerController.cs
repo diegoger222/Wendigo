@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         Look();
         Move();
-        PressedButtons();
+       // PressedButtons();
         Screen.lockCursor=true;
     }
 
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * rotationinput.x);
         playerCamera.transform.localRotation = Quaternion.Euler(-cameraVerticalAngle, 0f, 0f);
     }
-
+    /*
     private void PressedButtons()
     {
        // if (Input.GetKeyDown(KeyCode.R)) { DisparoArma.Recharge(); } //Recargar Arma
@@ -123,5 +123,5 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {; }   //Abrir Inventario
         if (Input.GetKeyDown(KeyCode.F)) {; }   //Acciona con el mapa. Sirve para recoger elementos y/o comerciar.
         if (Input.GetKeyDown(KeyCode.Escape)) {; }  //Menu opciones y/o salir
-    }
+    }*/
 }
