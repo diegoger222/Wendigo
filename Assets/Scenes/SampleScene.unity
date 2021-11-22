@@ -21583,8 +21583,6 @@ MonoBehaviour:
   prev_y: 0
   contadorGrounded: 0
   retardoJump: 6
-  DisparoArma: {fileID: 1529763844}
-  escopeta: {fileID: 1529763841}
 --- !u!136 &1509364451
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21639,7 +21637,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509364449}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6824d38f9d8f514088638b1daa817e7, type: 3}
   m_Name: 
