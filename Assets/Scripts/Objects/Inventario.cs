@@ -1,16 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventario : MonoBehaviour
 {
+    [Header("Referencias a inventario")]
     public GameObject inventario;
     public GameObject PanelSlots;
+
+    [Header("Referencia a la alerta")]
+    public Text Alerta;
+
+    [Header("Cantidad the objetos dropeados")]
+    public int cantidadDrop;
 
     private int numeroSlots;
     private List<GameObject> slots;
     private List<Item> objetos;
     private List<Item> objetosUnicos;
+
+    //variable para sacar y ocultar el inventario
+    private bool inventarioVisible;
 
 
     void Start()
@@ -25,7 +36,18 @@ public class Inventario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E)) { inventarioVisible = !inventarioVisible; }
+        if (inventarioVisible)
+        {
+            inventario.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+        else {
+            inventario.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     private Item addToInventory( Item item ) {
@@ -65,13 +87,30 @@ public class Inventario : MonoBehaviour
         else { return item; }
     }
 
-    private void removeItem(Item item) {
-        objetos.Remove(item);
+    public void removeItem(Item item) {
+        if (item.stackeable) {
+            int index = objetos.FindIndex(x => x.nombre == item.nombre && x.cantidad == item.cantidad);
+            if (objetos[index].cantidad - cantidadDrop <= item.maxCantidad) { objetos.Remove(objetos[index]); }
+            else { objetos[index].cantidad -= cantidadDrop; }
+        }
+        else { objetos.Remove(item); }
     }
 
+    // Metodo en proceso. Faltan un script pa spawnear objetos y averiguar un poco como manejar el tema de la alerta
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Item") {
+            Item item = other.GetComponent<Item>();
+            Alerta.text = "Pulsa F para recoger " + item.nombre + "x " + item.cantidad;
+            if (Input.GetKeyDown(KeyCode.F)) {
+                Item itemAux = addToInventory(item);
+                if (itemAux.cantidad == item.cantidad) { Alerta.text = "Inventario lleno"; }
+                else { Destroy(other.gameObject); }
+            }
+        }
     }
+
+
+    private void refrescarUi() { }
 
 }
