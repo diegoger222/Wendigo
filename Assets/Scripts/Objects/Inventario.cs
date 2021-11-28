@@ -76,9 +76,8 @@ public class Inventario : MonoBehaviour
                 return item;
             }
         }
-        //Caso el objeto no es stakeable o lo es pero no hay ya stacks disponibles
-        else if (objetos.Count < numeroSlots)
-        {
+        //Caso el objeto no es stakeable o lo es pero no hay stacks disponibles
+        else if (objetos.Count < numeroSlots){
             objetos.Add(item);
             item.cantidad = 0;
             return item;
@@ -94,6 +93,25 @@ public class Inventario : MonoBehaviour
             else { objetos[index].cantidad -= cantidadDrop; }
         }
         else { objetos.Remove(item); }
+        refrescarUi();
+    }
+
+    public void consumirItem(Item item, int cantidad) {
+        if (item.stackeable) {
+            int index = objetos.FindIndex(x => x.nombre == item.nombre && x.cantidad == item.cantidad);
+            if (objetos[index].cantidad - cantidad <= item.maxCantidad) { objetos.Remove(objetos[index]); }
+            else { objetos[index].cantidad -= cantidadDrop; }
+        }
+        else { objetos.Remove(item); }
+        refrescarUi();
+    }
+
+    public int getMunicion(string tipo) {
+        if (objetos.Find(x => x.nombre == tipo && x.tipo == Item.tipos.municion))
+        {
+            return objetos.Find(x => x.nombre == tipo && x.tipo == Item.tipos.municion).cantidad;
+        }
+        else { return -1; }
     }
 
     // Metodo en proceso. Faltan un script pa spawnear objetos y averiguar un poco como manejar el tema de la alerta
@@ -101,11 +119,11 @@ public class Inventario : MonoBehaviour
     {
         if (other.tag == "Item") {
             Item item = other.GetComponent<Item>();
-            Alerta.text = "Pulsa F para recoger " + item.nombre + "x " + item.cantidad;
+            //Alerta.text = "Pulsa F para recoger " + item.nombre + "x " + item.cantidad;
             if (Input.GetKeyDown(KeyCode.F)) {
                 Item itemAux = addToInventory(item);
                 if (itemAux.cantidad == item.cantidad) { Alerta.text = "Inventario lleno"; }
-                else { Destroy(other.gameObject); }
+                else { Destroy(other.gameObject); refrescarUi(); }
             }
         }
     }
