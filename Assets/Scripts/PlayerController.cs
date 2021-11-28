@@ -57,9 +57,10 @@ public class PlayerController : MonoBehaviour
             moveInput = Vector3.ClampMagnitude(moveInput, 1f);
             prev_y = moveInput.y;   //Esto esta puesto para poder visualizar cuando para de caer. No hace falta en si.
 
-            if (Input.GetButton("Sprint"))
+            if (Input.GetButton("Sprint") && (1 < this.GetComponent<Stamina>().ReturnStamina()))
             {
                 moveInput = transform.TransformDirection(moveInput) * runSpeed;
+                this.GetComponent<Stamina>().UsarStamina(0.40f);
             }
             else
             {
@@ -87,9 +88,10 @@ public class PlayerController : MonoBehaviour
             moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             moveInput = Vector3.ClampMagnitude(moveInput, 1f);
 
-            if (Input.GetButton("Sprint"))
+            if (Input.GetButton("Sprint") && (1 < this.GetComponent<Stamina>().ReturnStamina()))
             {
                 moveInput = transform.TransformDirection(moveInput) * runSpeed;
+                this.GetComponent<Stamina>().UsarStamina(0.40f);
             }
             else
             {
