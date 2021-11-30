@@ -16,10 +16,12 @@ public class DisparoArma : MonoBehaviour
     private float shotRateTime = 0;
 
     [Header("Recarga")]
-    public float rechargeRate = 1.3f;       //Relacionado con recargar
+    public float rechargeRate = 3f;       //Relacionado con recargar
     private float rechargeRateTime = 0;
     public int shotCounter = 0;
     public int numberOfShots = 2;
+    public int Ammo = 100;
+    public bool NoAmmo = false;
     public bool recharging = false;
 
 
@@ -35,7 +37,7 @@ public class DisparoArma : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            if (!recharging && Time.time > shotRateTime && pistola.activeSelf)
+            if (shotCounter>0 && !recharging && Time.time > shotRateTime && pistola.activeSelf)
             {
                 //Vector3 a = transform.localPosition;
                 AddRecoil();
@@ -51,31 +53,44 @@ public class DisparoArma : MonoBehaviour
                     Destroy(newBullet, 1);
                 } 
                 shotRateTime = Time.time + shotRate;
-                shotCounter++;
-
-                if (shotCounter == numberOfShots) { Recharge(); } //Si he gastado los disparos, recargo automaticamente
+                shotCounter--;
             }
-            
+
         }
+
+        //Si he gastado los disparos, recargo automaticamente
+        if (shotCounter == 0) { Recharge(); } 
 
         //Tenemos que ir actualizando el estado de la recarga
         if (recharging) { UpdateRecharge(); }
 
-        //Recargar Arma
+        //Tenemos que ir actualizando el estado de la municion
+        if (Ammo > 0) { NoAmmo = false; }
+
+        //Recargar Arma al pulsar 'R'
         if (Input.GetKeyDown(KeyCode.R)) { Recharge(); }
     }
 
 
 
     //! Metodos Auxiliares
-    public void Recharge() //Si ya estas recargando o tienes a tope las balas, no empiezas a recargar.
+    public void Recharge() //Si ya estas recargando, no queda municion o tienes a tope las balas, no empiezas a recargar.
     { 
-        if (!recharging && shotCounter != 0) { rechargeRateTime = Time.time + rechargeRate; recharging = true; }  
+        if (!recharging && !NoAmmo && shotCounter != numberOfShots) { rechargeRateTime = Time.time + rechargeRate; recharging = true; }  
     }
 
     private void UpdateRecharge() //Cuando pase el tiempo establecido, se completara la recarga.
     { 
-        if (Time.time > rechargeRateTime) { shotCounter = 0; recharging = false; } 
+        if (Time.time > rechargeRateTime) {
+            recharging = false;
+
+            // Actualizo la municion, y coloco las balas en la recamara
+            if (Ammo >= numberOfShots || Ammo + shotCounter >= numberOfShots) { Ammo -= numberOfShots - shotCounter; shotCounter = numberOfShots; }
+            else { shotCounter = Ammo + shotCounter; Ammo = 0; }
+
+            if (Ammo == 0) { NoAmmo = true; }
+            
+        } 
     }
 
     private void Desviaciones(int i, out int dx, out int dy)
