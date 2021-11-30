@@ -41,12 +41,14 @@ public class DisparoArma : MonoBehaviour
                 AddRecoil();
                 GameObject newBullet;
 
-                for (int i = -3; i < 4; i++)    //Se disparan 7 balas, con diferentes desviaciones
+                int dx, dy;
+                for (int i = 0; i < 8; i++)    //Se disparan 8 balas, con diferentes desviaciones predefinidas
                 {
-                    Vector3 desviacion = new Vector3(i * 0.1f, i%2 * 0.1f, 0);
+                    Desviaciones(i, out dx, out dy);
+                    Vector3 desviacion = new Vector3( dx * 0.035f, dy * 0.025f, 0);
                     newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
                     newBullet.GetComponent<Rigidbody>().AddForce((spawnPoint.forward + desviacion) * shotForce);
-                    Destroy(newBullet, 2);
+                    Destroy(newBullet, 1);
                 } 
                 shotRateTime = Time.time + shotRate;
                 shotCounter++;
@@ -59,6 +61,8 @@ public class DisparoArma : MonoBehaviour
         //Tenemos que ir actualizando el estado de la recarga
         if (recharging) { UpdateRecharge(); }
 
+        //Recargar Arma
+        if (Input.GetKeyDown(KeyCode.R)) { Recharge(); }
     }
 
 
@@ -72,6 +76,22 @@ public class DisparoArma : MonoBehaviour
     private void UpdateRecharge() //Cuando pase el tiempo establecido, se completara la recarga.
     { 
         if (Time.time > rechargeRateTime) { shotCounter = 0; recharging = false; } 
+    }
+
+    private void Desviaciones(int i, out int dx, out int dy)
+    {
+        switch (i)
+        {
+            case 0: dx = -2; dy =  1; break;
+            case 1: dx = -1; dy =  2; break;
+            case 2: dx = -2; dy = -1; break;
+            case 3: dx = -1; dy = -2; break;
+            case 4: dx =  2; dy =  1; break;
+            case 5: dx =  1; dy =  2; break;
+            case 6: dx =  2; dy = -1; break;
+            case 7: dx =  1; dy = -2; break;
+            default: dx = 0; dy =  0; break;
+        }
     }
 
 
