@@ -24,6 +24,8 @@ public class Zorro : MonoBehaviour
         if (Input.GetKeyDown("m")) {
             if (anim.GetBool("Sentarse") != true) {
                 anim.SetBool("Sentarse", true);
+                anim.SetInteger("Index_wolf", 0);
+
             }
             else
             {
