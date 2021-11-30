@@ -1176,6 +1176,41 @@ PrefabInstance:
       propertyPath: terrain
       value: 
       objectReference: {fileID: 2054810072}
+    - target: {fileID: 6039376226544585109, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039376226544585109, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039376226544585111, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039376226544585111, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039376226544585111, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039376226544585129, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039376226544585131, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7214004702459017981, guid: 3061574ec6337f14e96dd3af0e23d28f,
         type: 3}
       propertyPath: m_Name
@@ -1234,6 +1269,16 @@ PrefabInstance:
     - target: {fileID: 8022770909123272775, guid: 3061574ec6337f14e96dd3af0e23d28f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621272471841614679, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621272471841614679, guid: 3061574ec6337f14e96dd3af0e23d28f,
+        type: 3}
+      propertyPath: m_BaseOffset
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

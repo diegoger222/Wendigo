@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 331733205913857079}
   - component: {fileID: 2259687340257325182}
+  - component: {fileID: 420992416049052760}
   m_Layer: 0
   m_Name: balaEscopeta
   m_TagString: Untagged
@@ -143,3 +144,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &420992416049052760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478533887442054907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22dced8bd072f394ca2c73807cbd9c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
