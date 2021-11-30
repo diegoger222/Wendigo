@@ -61,6 +61,8 @@ public class DisparoArma : MonoBehaviour
         //Tenemos que ir actualizando el estado de la recarga
         if (recharging) { UpdateRecharge(); }
 
+        //Recargar Arma
+        if (Input.GetKeyDown(KeyCode.R)) { Recharge(); }
     }
 
 
