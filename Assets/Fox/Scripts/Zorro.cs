@@ -45,7 +45,19 @@ public class Zorro : MonoBehaviour
                 anim.SetInteger("Index_wolf", 3);// estado normal
             }
         }
-      
+
+        if (Input.GetKeyDown("b")) {
+            if (anim.GetBool("Correr") != true) {
+                anim.SetBool("Correr", true);
+              
+
+            }
+            else
+            {
+                anim.SetBool("Correr", false);
+            }
+            
+        }
     }
 
 }
