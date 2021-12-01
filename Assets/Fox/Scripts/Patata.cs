@@ -45,6 +45,6 @@ public class Patata : MonoBehaviour
 			}
 		}
 		// soften the orientation
-		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime / 0.1f); //0.2f
+		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime / 0.2f); //0.2f
 	}
 }
