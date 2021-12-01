@@ -31,6 +31,9 @@ public class Inventario : MonoBehaviour
         objetos = new List<Item>();
         objetosUnicos = new List<Item>();
         objetosUnicos.Add(GameObject.FindGameObjectWithTag("Escopeta").GetComponent<Item>());
+        for (int i = 0; i < numeroSlots; i++) {
+            slots.Add(PanelSlots.transform.GetChild(i).gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -114,21 +117,48 @@ public class Inventario : MonoBehaviour
         else { return -1; }
     }
 
-    // Metodo en proceso. Faltan un script pa spawnear objetos y averiguar un poco como manejar el tema de la alerta
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Item") {
-            Item item = other.GetComponent<Item>();
-            //Alerta.text = "Pulsa F para recoger " + item.nombre + "x " + item.cantidad;
-            if (Input.GetKeyDown(KeyCode.F)) {
-                Item itemAux = addToInventory(item);
-                if (itemAux.cantidad == item.cantidad) { Alerta.text = "Inventario lleno"; }
-                else { Destroy(other.gameObject); refrescarUi(); }
-            }
+        if (collision.gameObject.tag == "Item")
+        {
+            Item item = collision.gameObject.GetComponent<Item>();
+            Alerta.text = "Pulsa F para recoger " + item.nombre + "x " + item.cantidad;
         }
     }
 
+    // Metodo en proceso. Faltan un script pa spawnear objetos
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Item" && Input.GetKeyDown(KeyCode.F))
+        {
+            Item item = collision.gameObject.GetComponent<Item>();
+            Item itemAux = addToInventory(item);
+            if (itemAux.cantidad == item.cantidad) { Alerta.text = "Inventario lleno"; }
+            else { Destroy(collision.gameObject); refrescarUi(); }
+        }
+    }
 
-    private void refrescarUi() { }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Item")
+        {
+            Alerta.text = "";
+        }
+    }
+
+    //metodo para refrescar la interfaz del inventario
+    private void refrescarUi() {
+        foreach (GameObject slot in slots) {
+            slot.GetComponent<Slot>().setEmpty(true);
+        }
+        for (int i = 0; i < objetos.Count; i++) {
+            slots[i].GetComponent<Slot>().setItem(objetos[i]);
+            slots[i].GetComponent<Slot>().setEmpty(false);
+        }
+        foreach (GameObject slot in slots)
+        {
+            slot.GetComponent<Slot>().UpdateSlot();
+        }
+    }
 
 }
