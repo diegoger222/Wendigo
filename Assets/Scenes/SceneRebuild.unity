@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 32188313}
   m_Layer: 0
   m_Name: ArmaPosicion
-  m_TagString: Untagged
+  m_TagString: Escopeta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7460,9 +7460,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300002, guid: 122b34909e976af4293575b0e26141a8, type: 3}
+    - target: {fileID: 1021076032002798, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
+      propertyPath: m_TagString
+      value: Escopeta
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304552910494454, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
+      propertyPath: m_TagString
+      value: Escopeta
+      objectReference: {fileID: 0}
     - target: {fileID: 1652954791862484, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
       propertyPath: m_Name
       value: Double-barrel_gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652954791862484, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
+      propertyPath: m_TagString
+      value: Escopeta
       objectReference: {fileID: 0}
     - target: {fileID: 4781552677805482, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
       propertyPath: m_RootOrder
@@ -7526,6 +7538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118629650399884693, guid: b02ea55a7090ed64ba3cafe8b77625f6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Escopeta
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b02ea55a7090ed64ba3cafe8b77625f6, type: 3}
@@ -12994,7 +13011,7 @@ GameObject:
   - component: {fileID: 732563164}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Escopeta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28823,7 +28840,7 @@ GameObject:
   - component: {fileID: 1509364456}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
