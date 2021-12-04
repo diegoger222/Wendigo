@@ -28,8 +28,8 @@ public class DisparoArma : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-             numberOfShots = 2;
-             Ammo = 100;
+
+        Ammo = 100;
     }
     private void Update()
     {
@@ -126,6 +126,6 @@ public class DisparoArma : MonoBehaviour
 
     public int GetBalas()
     {
-        return numberOfShots;
+        return shotCounter;
     }
 }
