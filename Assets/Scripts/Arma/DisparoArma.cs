@@ -26,7 +26,11 @@ public class DisparoArma : MonoBehaviour
 
 
     // Update is called once per frame
-   
+    private void Start()
+    {
+             numberOfShots = 2;
+             Ammo = 100;
+    }
     private void Update()
     {
         Disparo();
@@ -116,4 +120,12 @@ public class DisparoArma : MonoBehaviour
         transform.position = transform.position - transform.right * (recoilForce / 30f);
     }
    
+    public  int  GetAmo() {
+        return Ammo;
+    }
+
+    public int GetBalas()
+    {
+        return numberOfShots;
+    }
 }
