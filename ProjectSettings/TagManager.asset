@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Generator
   - Escopeta
+  - Animal
+  - Bala
   layers:
   - Default
   - TransparentFX

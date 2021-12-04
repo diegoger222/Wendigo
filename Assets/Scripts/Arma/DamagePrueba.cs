@@ -26,5 +26,7 @@ public class DamagePrueba : MonoBehaviour
             Debug.Log("Esto es un popu");
         }
         */
+ 
     }
+  
 }

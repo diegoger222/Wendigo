@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4629998177105708938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 331733205913857079}
   m_RootOrder: 0
@@ -106,10 +106,10 @@ GameObject:
   - component: {fileID: 331733205913857079}
   - component: {fileID: 2259687340257325182}
   - component: {fileID: 420992416049052760}
-  - component: {fileID: 8190356643239307696}
+  - component: {fileID: 7862112987045663918}
   m_Layer: 0
   m_Name: balaEscopeta
-  m_TagString: Untagged
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
---- !u!135 &8190356643239307696
+--- !u!135 &7862112987045663918
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,5 +169,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}

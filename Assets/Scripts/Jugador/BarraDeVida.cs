@@ -25,7 +25,7 @@ public class BarraDeVida : MonoBehaviour
         {
 
             vidaActual -= cantidad;
-            StartCoroutine(FrenarNasus());
+           // StartCoroutine(FrenarNasus());
 
             if (vidaActual < 0)
             {
