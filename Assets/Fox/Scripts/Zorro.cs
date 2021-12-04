@@ -117,13 +117,27 @@ public class Zorro : MonoBehaviour
                 }
                 else
                 {
-                    anim.SetBool("Atacar", true);
-                    anim.SetInteger("Ataque", 1);
-                   
-                    if (!nerfthis)
+                    if (ataque == 1)
                     {
-                        StartCoroutine(NerfeaEsto());
-                       
+                        anim.SetBool("Atacar", true);
+                        anim.SetInteger("Ataque", 1);
+
+                        if (!nerfthis)
+                        {
+                            StartCoroutine(NerfeaEsto());
+
+                        }
+                    }
+                    else
+                    {
+                        anim.SetBool("Atacar", true);
+                        anim.SetInteger("Ataque", 2);
+
+                        if (!nerfthis)
+                        {
+                            StartCoroutine(NerfeaEsto());
+
+                        }
                     }
                 }
 
@@ -194,7 +208,7 @@ public class Zorro : MonoBehaviour
             GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(20);
         }
         yield return new WaitForSeconds(0.6f);
-        ataque = UnityEngine.Random.Range(0, 2);
+        ataque = UnityEngine.Random.Range(0, 3);
         nerfthis = false;
     }
 
