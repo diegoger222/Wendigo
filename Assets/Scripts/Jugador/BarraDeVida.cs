@@ -10,7 +10,8 @@ public class BarraDeVida : MonoBehaviour
     public float vidaActual = 80;
 
     public float vidaMaxima = 100;
-
+    public bool invencible = false;
+    private float damage;
     // Update is called once per frame
     void Update()
     {
@@ -19,15 +20,28 @@ public class BarraDeVida : MonoBehaviour
 
     public void RestarVida(int cantidad)
     {
+        //damage = cantidad;
+        if (!invencible && vidaActual > 0)
+        {
 
-        vidaActual -= cantidad;
-        if (vidaActual < 0)
-        {
-            vidaActual = 0;
+            vidaActual -= cantidad;
+            StartCoroutine(FrenarNasus());
+
+            if (vidaActual < 0)
+            {
+
+            }
+            if (vidaActual > 100)
+            {
+                vidaActual = 100;
+            }
         }
-        if( vidaActual > 100)
-        {
-            vidaActual = 100;
-        }
+    }
+
+
+    IEnumerator FrenarNasus() {
+        invencible = true;
+        yield return new WaitForSeconds(0.75f);   
+        invencible = false;
     }
 }

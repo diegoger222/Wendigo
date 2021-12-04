@@ -11,13 +11,21 @@ public class Zorro : MonoBehaviour
     private Animator anim;
     public Transform player;
     float DistanciaConJugador;
+    float DistanciaPunto;
     public float DistanciaTeReviento = 20;
     private NavMeshAgent agent;
     public bool Bakugou = true;
+    public int tipoZorro = 0;
+    private bool nerfthis = false;
+
+    Transform puntofinal;
+    bool muerto = false;
     int ataque = 1;
     void Start()
     {
         player = GameObject.Find("Player").transform;
+        target = GameObject.Find("1").transform;
+        puntofinal = GameObject.Find("2").transform;
         anim = GetComponent<Animator>();
         //anim.SetBool("Sentarse", true);
     }
@@ -29,10 +37,16 @@ public class Zorro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        muerto = anim.GetBool("Muerte");
         DistanciaConJugador = Vector3.Distance(transform.position, player.position);
-        if (DistanciaConJugador < DistanciaTeReviento)
+        if ((DistanciaConJugador < DistanciaTeReviento)&&!muerto&& tipoZorro==0)
         {
             Reventar();
+        }
+        if(tipoZorro == 1)
+        {     
+            caminar();
         }
         if (Input.GetKeyDown("m")) {
             if (anim.GetBool("Sentarse") != true) {
@@ -84,7 +98,7 @@ public class Zorro : MonoBehaviour
 
         if (Bakugou)
         {
-            GetComponent<NavMeshAgent>().destination = player.position;
+           // GetComponent<NavMeshAgent>().destination = player.position;
             if (DistanciaConJugador < 3)
             {
 
@@ -92,6 +106,7 @@ public class Zorro : MonoBehaviour
                 {
                     anim.SetBool("Atacar", true);
                     anim.SetInteger("Ataque", 0);
+                   GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(10);
                    
 
                 }
@@ -99,6 +114,12 @@ public class Zorro : MonoBehaviour
                 {
                     anim.SetBool("Atacar", true);
                     anim.SetInteger("Ataque", 1);
+                   
+                    if (!nerfthis)
+                    {
+                        StartCoroutine(NerfeaEsto());
+                       
+                    }
                 }
 
                 GetComponent<NavMeshAgent>().speed = 0;
@@ -115,4 +136,54 @@ public class Zorro : MonoBehaviour
         }
     }
 
+    void caminar()
+    {
+
+
+        anim.SetInteger("Index_wolf", 1);
+        anim.SetBool("Correr", true); // quitar
+        this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        DistanciaPunto = Vector3.Distance(transform.position, target.position);
+        if (DistanciaPunto < 3)
+        {
+
+           
+            target = GameObject.Find("2").transform;
+            if(target = puntofinal)
+            {
+                anim.SetBool("Correr", false); // quitar
+                anim.SetInteger("Index_wolf", 0);
+                anim.SetBool("Sentarse", true);
+            }
+        }
+    }
+
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+
+
+
+        if(other.tag == "Player")
+        {
+
+            if (DistanciaConJugador < 3)
+            {
+                other.GetComponent<BarraDeVida>().RestarVida(10);
+            }
+        }
+       
+    }
+    */
+     IEnumerator NerfeaEsto()
+    {
+        nerfthis = true;
+        yield return new WaitForSeconds(0.5f);
+        if (DistanciaConJugador < 3)
+        {
+            GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(10);
+        }
+        yield return new WaitForSeconds(0.6f);
+        nerfthis = false;
+    }
 }
