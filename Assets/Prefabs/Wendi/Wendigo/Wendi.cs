@@ -12,6 +12,7 @@ public class Wendi : MonoBehaviour
     float DistanciaPunto;
     public float DistanciaTeReviento = 20;
     bool nerfVoli = false;
+    bool atacando = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class Wendi : MonoBehaviour
 
         this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
 
-        if (DistanciaConJugador >= 9)
+        if (DistanciaConJugador >= 9 && !atacando)
         {
             GetComponent<NavMeshAgent>().speed = 12;
 
@@ -50,6 +51,15 @@ public class Wendi : MonoBehaviour
         
             GetComponent<NavMeshAgent>().speed = 0;
             anim.SetBool("Atacar", true);
+            
+
+                if (!nerfVoli)
+                {
+                    StartCoroutine(DañoVoli());
+
+                }
+            
+
         }
         else
         {
@@ -61,44 +71,21 @@ public class Wendi : MonoBehaviour
 
 
 
-    private void OnTriggerEnter(Collider other)
-    {/*
-        if(other.tag == "Player")
-        {
-            other.GetComponent<BarraDeVida>().RestarVida(damage);
-        }
-        */
-        if (other.tag == "Animal")
-        {
-            other.GetComponent<VidaAnimal>().RestarVida(70);
-        }
-        if(other.tag == "Player")
-        {
-
-            if (!nerfVoli)
-            {
-                StartCoroutine(DañoVoli());
-
-            }
-        }
-        /*
-        if(other.tag == "Enemigo")
-        {
-            Debug.Log("Esto es un popu");
-        }
-        */
-
-    }
-
+  
+   
+       
+    
     IEnumerator DañoVoli()
     {
         nerfVoli= true;
-        yield return new WaitForSeconds(0.5f);
-        if (DistanciaConJugador < 9)
+        atacando = true;
+        yield return new WaitForSeconds(1.25f);
+        if (DistanciaConJugador < 10)
         {
             GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(70);
         }
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1.75f);
+        atacando = false;
         nerfVoli = false;
     }
 
