@@ -29284,8 +29284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb987998d67c304498c166ee1427b5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: {fileID: 0}
-  balas: {fileID: 0}
+  ammo: {fileID: 1571171825}
+  balas: {fileID: 521229996}
 --- !u!1001 &1521499791
 PrefabInstance:
   m_ObjectHideFlags: 0
