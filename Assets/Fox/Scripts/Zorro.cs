@@ -101,13 +101,18 @@ public class Zorro : MonoBehaviour
            // GetComponent<NavMeshAgent>().destination = player.position;
             if (DistanciaConJugador < 3)
             {
+                //StartCoroutine(TipoAtaque());
 
                 if( ataque == 0)
                 {
                     anim.SetBool("Atacar", true);
                     anim.SetInteger("Ataque", 0);
-                   GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(10);
-                   
+                    if (!nerfthis)
+                    {
+                        StartCoroutine(NerfeaEsto());
+
+                    }
+
 
                 }
                 else
@@ -181,9 +186,19 @@ public class Zorro : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (DistanciaConJugador < 3)
         {
-            GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(10);
+            GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(20);
         }
         yield return new WaitForSeconds(0.6f);
+        ataque = UnityEngine.Random.Range(0, 2);
         nerfthis = false;
+    }
+
+
+
+    IEnumerator TipoAtaque()
+    {
+        yield return new WaitForSeconds(1f);
+       
+        
     }
 }
