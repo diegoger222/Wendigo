@@ -152,14 +152,19 @@ public class Zorro : MonoBehaviour
         if (DistanciaPunto < 3)
         {
 
+
            
-            target = GameObject.Find("2").transform;
-            if(target = puntofinal)
+            if(target == puntofinal)
             {
                 anim.SetBool("Correr", false); // quitar
                 anim.SetInteger("Index_wolf", 0);
                 anim.SetBool("Sentarse", true);
             }
+            else
+            {
+                SiguienteLugar();
+            }
+          
         }
     }
 
@@ -200,5 +205,23 @@ public class Zorro : MonoBehaviour
         yield return new WaitForSeconds(1f);
        
         
+    }
+
+
+    void SiguienteLugar()
+    {
+        int i = UnityEngine.Random.Range(0, 4);
+        switch (i)
+        {
+            case 0: target = GameObject.Find("1").transform; break;
+            case 1: target = GameObject.Find("2").transform; break;
+            case 2: target = GameObject.Find("3").transform; break;
+            case 3: target = GameObject.Find("4").transform; break;
+            case 4: target = GameObject.Find("1").transform; break;
+            case 5: target = GameObject.Find("1").transform; break;
+            case 6: target = GameObject.Find("1").transform; break;
+            case 7: target = GameObject.Find("1").transform; break;
+            default: target = GameObject.Find("3").transform; break;
+        }
     }
 }
