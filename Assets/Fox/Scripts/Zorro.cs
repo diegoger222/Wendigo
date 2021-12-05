@@ -48,6 +48,14 @@ public class Zorro : MonoBehaviour
         {     
             caminar();
         }
+        if(tipoZorro == 2)
+        {
+            anim.SetBool("Sentarse", true);
+            anim.SetInteger("Index_wolf", 0);
+            anim.SetInteger("MoverCabezaSentado", 3);
+
+        }
+        /*
         if (Input.GetKeyDown("m")) {
             if (anim.GetBool("Sentarse") != true) {
                 anim.SetBool("Sentarse", true);
@@ -85,6 +93,7 @@ public class Zorro : MonoBehaviour
             }
             
         }
+        */
     }
 
     void Reventar()
