@@ -159,6 +159,7 @@ public class Zorro : MonoBehaviour
                 if (BufeoNasus)
                 {
                     GetComponent<NavMeshAgent>().speed = 0;
+                    GetComponent<NavMeshAgent>().destination = player.position;
                 }
 
             }
@@ -167,9 +168,10 @@ public class Zorro : MonoBehaviour
             {
                 anim.SetBool("Atacar", false);
                 atacando = false;
-                if (BufeoNasus)
+                if (BufeoNasus && !nerfthis)
                 {
-                    GetComponent<NavMeshAgent>().speed = 30;
+                    GetComponent<NavMeshAgent>().speed = 5;
+                    GetComponent<NavMeshAgent>().destination = player.position;
                 }
             }
         }
