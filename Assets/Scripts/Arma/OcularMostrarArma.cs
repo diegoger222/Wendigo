@@ -18,6 +18,7 @@ public class OcularMostrarArma : MonoBehaviour
         { 
             if (escopeta.activeSelf)
             {
+                escopeta.GetComponent<DisparoArma>().CancelRecharge(); //Al esconder el arma se cancela la recarga
                 escopeta.SetActive(false);
             }
             else
