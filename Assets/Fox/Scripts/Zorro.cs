@@ -55,6 +55,10 @@ public class Zorro : MonoBehaviour
             anim.SetInteger("MoverCabezaSentado", 3);
 
         }
+        if (tipoZorro == 3)
+        {
+            anim.SetBool("Tactico", true);
+        }
         /*
         if (Input.GetKeyDown("m")) {
             if (anim.GetBool("Sentarse") != true) {
@@ -108,7 +112,7 @@ public class Zorro : MonoBehaviour
         if (Bakugou)
         {
            // GetComponent<NavMeshAgent>().destination = player.position;
-            if (DistanciaConJugador < 3)
+            if (DistanciaConJugador < 2)
             {
                 //StartCoroutine(TipoAtaque());
 
@@ -155,7 +159,7 @@ public class Zorro : MonoBehaviour
 
             }
 
-            if (DistanciaConJugador > 3)
+            if (DistanciaConJugador > 2)
             {
                 anim.SetBool("Atacar", false);
                 GetComponent<NavMeshAgent>().speed = 12;
@@ -212,7 +216,7 @@ public class Zorro : MonoBehaviour
     {
         nerfthis = true;
         yield return new WaitForSeconds(0.5f);
-        if (DistanciaConJugador < 3)
+        if (DistanciaConJugador < 2)
         {
             GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(20);
         }
