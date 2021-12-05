@@ -39,11 +39,18 @@ public class VidaAnimal : MonoBehaviour
         if (vidaActual < 0)
         {
             anim.SetBool("Muerte", true);
+            StartCoroutine(Muerte());
          }
         if (vidaActual > 100)
         {
             vidaActual = 100;
         }
+    }
+
+    IEnumerator Muerte()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(this.gameObject);
     }
   
 }
