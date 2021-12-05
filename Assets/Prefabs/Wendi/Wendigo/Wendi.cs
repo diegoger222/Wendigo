@@ -10,15 +10,17 @@ public class Wendi : MonoBehaviour
     public Transform player;
     float DistanciaConJugador;
     float DistanciaPunto;
-    public float DistanciaTeReviento = 40;
+    public float DistanciaTeReviento = 60;
     bool nerfVoli = false;
     bool atacando = false;
     bool grito = false;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").transform;
+      //  player = GameObject.Find("Player").transform;
         anim = GetComponent<Animator>();
+        DistanciaTeReviento = 60;
+         DistanciaConJugador = Vector3.Distance(transform.position, player.position);
     }
 
     // Update is called once per frame

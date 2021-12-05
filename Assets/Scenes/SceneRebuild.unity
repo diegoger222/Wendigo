@@ -22601,7 +22601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ac9b2dd4dbe4b4082b4d7af31fbc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1509364453}
   DistanciaTeReviento: 20
 --- !u!75 &1118579202
 ConstantForce:
