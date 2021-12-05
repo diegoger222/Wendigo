@@ -10,9 +10,10 @@ public class Wendi : MonoBehaviour
     public Transform player;
     float DistanciaConJugador;
     float DistanciaPunto;
-    public float DistanciaTeReviento = 20;
+    public float DistanciaTeReviento = 40;
     bool nerfVoli = false;
     bool atacando = false;
+    bool grito = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +25,21 @@ public class Wendi : MonoBehaviour
     void Update()
     {
         DistanciaConJugador = Vector3.Distance(transform.position, player.position);
-        if ((DistanciaConJugador < DistanciaTeReviento))
+        if ((DistanciaConJugador < DistanciaTeReviento) && !grito)
         {
             Reventar();
+        }
+        if ((DistanciaConJugador < DistanciaTeReviento)){
+            this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
+        if (Input.GetKeyDown("h"))
+        {
+            if (!grito)
+            {
+                this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+                GetComponent<NavMeshAgent>().speed = 0;
+                StartCoroutine(GritoVoli());
+            }
         }
     }
 
@@ -87,6 +100,18 @@ public class Wendi : MonoBehaviour
         yield return new WaitForSeconds(1.75f);
         atacando = false;
         nerfVoli = false;
+    }
+
+    IEnumerator GritoVoli()
+    {
+        grito = true;
+        this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        anim.SetBool("Grito", true);
+        this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        yield return new WaitForSeconds(5);
+        anim.SetBool("Grito", false);
+        grito = false;
+
     }
 
 }
