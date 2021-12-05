@@ -20759,7 +20759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -20.299988, y: 18.599976}
+  m_AnchoredPosition: {x: -20.300049, y: 18.599976}
   m_SizeDelta: {x: 173.5529, y: 77.2468}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1061969529
@@ -29893,7 +29893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 857122722}
   gravityScale: -20
-  walkSpeed: 5
+  walkSpeed: 2
   runSpeed: 10
   rotationSensibility: 100
   jumpHeight: 1.9
@@ -32989,7 +32989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012022432554, guid: 5667e30a9b45b488b916c994a81d1d9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.66
+      value: -13.54
       objectReference: {fileID: 0}
     - target: {fileID: 4000012022432554, guid: 5667e30a9b45b488b916c994a81d1d9b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33121,17 +33121,17 @@ PrefabInstance:
     - target: {fileID: 114887486489900960, guid: 5667e30a9b45b488b916c994a81d1d9b,
         type: 3}
       propertyPath: _fogAreaPosition.x
-      value: 669.69257
+      value: 653.47253
       objectReference: {fileID: 0}
     - target: {fileID: 114887486489900960, guid: 5667e30a9b45b488b916c994a81d1d9b,
         type: 3}
       propertyPath: _fogAreaPosition.y
-      value: 11.772972
+      value: 9.502973
       objectReference: {fileID: 0}
     - target: {fileID: 114887486489900960, guid: 5667e30a9b45b488b916c994a81d1d9b,
         type: 3}
       propertyPath: _fogAreaPosition.z
-      value: 844.871
+      value: 865.821
       objectReference: {fileID: 0}
     - target: {fileID: 114887486489900960, guid: 5667e30a9b45b488b916c994a81d1d9b,
         type: 3}
