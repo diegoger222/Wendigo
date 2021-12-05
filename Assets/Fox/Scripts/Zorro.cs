@@ -17,6 +17,9 @@ public class Zorro : MonoBehaviour
     public bool Bakugou = true;
     public int tipoZorro = 0;
     private bool nerfthis = false;
+    public bool BufeoNasus = false;
+    public int damage = 20;
+    private bool atacando = false;
 
     Transform puntofinal;
     bool muerto = false;
@@ -102,10 +105,9 @@ public class Zorro : MonoBehaviour
 
     void Reventar()
     {
-
+        this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
         anim.SetInteger("Index_wolf", 1);
         anim.SetBool("Correr", true);
-        GetComponent<NavMeshAgent>().speed = 12;
 
         this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
 
@@ -153,17 +155,22 @@ public class Zorro : MonoBehaviour
                         }
                     }
                 }
-
-                GetComponent<NavMeshAgent>().speed = 0;
-
+                atacando = true;
+                if (BufeoNasus)
+                {
+                    GetComponent<NavMeshAgent>().speed = 0;
+                }
 
             }
 
             if (DistanciaConJugador > 2)
             {
                 anim.SetBool("Atacar", false);
-                GetComponent<NavMeshAgent>().speed = 12;
-
+                atacando = false;
+                if (BufeoNasus)
+                {
+                    GetComponent<NavMeshAgent>().speed = 30;
+                }
             }
         }
     }
@@ -218,7 +225,7 @@ public class Zorro : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (DistanciaConJugador < 2)
         {
-            GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(20);
+            GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(damage);
         }
         yield return new WaitForSeconds(0.6f);
         ataque = UnityEngine.Random.Range(0, 3);
@@ -227,10 +234,11 @@ public class Zorro : MonoBehaviour
 
 
 
-    IEnumerator TipoAtaque()
+    IEnumerator AtacandoB()
     {
-        yield return new WaitForSeconds(1f);
-       
+        atacando = true;
+        yield return new WaitForSeconds(1.1f);
+        atacando = false;
         
     }
 
