@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -45,7 +47,6 @@ public class PlayerController : MonoBehaviour
         Look();
         Move();
        // PressedButtons();
-        Screen.lockCursor=true;
     }
 
     private void Move()

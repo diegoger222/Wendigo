@@ -12,6 +12,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private Transform quantityText;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private Sprite spriteVacio;
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         SlotIcon = transform.GetChild(0);
         quantityText = transform.GetChild(1);
         empty = true;
+        UpdateSlot();
     }
 
     public void UpdateSlot() {
@@ -28,7 +31,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             quantityText.GetComponent<Text>().text = item.cantidad.ToString();
         }
         else {
-            SlotIcon.GetComponent<Image>().sprite = item.icon;
+            SlotIcon.GetComponent<Image>().sprite = spriteVacio;
             quantityText.GetComponent<Text>().text = "";
         }
     }

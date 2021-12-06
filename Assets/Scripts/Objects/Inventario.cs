@@ -7,7 +7,7 @@ public class Inventario : MonoBehaviour
 {
     [Header("Referencias a inventario")]
     public GameObject inventario;
-    public GameObject PanelSlots;
+    public GameObject SlotsHolder;
 
     [Header("Referencia a la alerta")]
     public Text Alerta;
@@ -22,18 +22,21 @@ public class Inventario : MonoBehaviour
 
     //variable para sacar y ocultar el inventario
     private bool inventarioVisible;
+    private bool teclaPulsada;
 
 
     void Start()
     {
-        numeroSlots = PanelSlots.transform.childCount;
+        numeroSlots = SlotsHolder.transform.childCount;
         slots = new List<GameObject>();
         objetos = new List<Item>();
         objetosUnicos = new List<Item>();
         objetosUnicos.Add(GameObject.FindGameObjectWithTag("Escopeta").GetComponent<Item>());
         for (int i = 0; i < numeroSlots; i++) {
-            slots.Add(PanelSlots.transform.GetChild(i).gameObject);
+            slots.Add(SlotsHolder.transform.GetChild(i).gameObject);
         }
+        inventarioVisible = false;
+        teclaPulsada = false;
     }
 
     // Update is called once per frame
@@ -53,40 +56,41 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    private Item addToInventory( Item item ) {
-        //Caso objeto único
+    private int addToInventory( Item item ) { 
         if (item.objetoUnico) { 
-            objetosUnicos.Add(item); return item;
+            objetosUnicos.Add(item); return 0;
         }
         //Caso el objeto se puede stakear y ya tienes uno en el inventario que no tiene el maximo de staks
         else if (item.stackeable && objetos.Find(x => x.nombre == item.nombre && x.cantidad < x.maxCantidad)){
+            Debug.Log("Stakeable y disponible en inventario");
             int index = objetos.FindIndex(x => x.nombre == item.nombre && x.cantidad < x.maxCantidad); 
             //Si la suma no se pasa del maximo solo se aumenta el contador
             if (objetos[index].cantidad + item.cantidad <= item.maxCantidad){
+                Debug.Log("la suma no se pasa del maximo solo se aumenta el contador");
                 objetos[index].cantidad += item.cantidad;
-                item.cantidad = 0;
-                return item;
+                return 0;
             }
             //Si la suma se pasa se pone a maximo ese stack, y si hay espacio se añade otro stack con el numero restante
             else
             {
+                Debug.Log("a suma se pasa se pone a maximo ese stack, y si hay espacio se añade otro stack con el numero restante");
                 item.cantidad -= (item.maxCantidad - objetos[index].cantidad);
                 objetos[index].cantidad = objetos[index].maxCantidad;
                 if (objetos.Count < numeroSlots) {
                     objetos.Add(item);
-                    item.cantidad = 0;
+                    return 0;
                 }
-                return item;
+                return item.cantidad;
             }
         }
         //Caso el objeto no es stakeable o lo es pero no hay stacks disponibles
         else if (objetos.Count < numeroSlots){
+            Debug.Log("objeto no es stakeable o lo es pero no hay stacks disponibles");
             objetos.Add(item);
-            item.cantidad = 0;
-            return item;
+            return 0;
         }
         //Caso inventario lleno
-        else { return item; }
+        else { return item.cantidad; }
     }
 
     public void removeItem(Item item) {
@@ -117,37 +121,48 @@ public class Inventario : MonoBehaviour
         else { return -1; }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Item")
+        if (other.gameObject.tag == "Item")
         {
-            Item item = collision.gameObject.GetComponent<Item>();
-            Alerta.text = "Pulsa F para recoger " + item.nombre + "x " + item.cantidad;
+            Item item = other.gameObject.GetComponent<Item>();
+            Debug.Log(item.nombre);
+            Alerta.text = "Pulsa F para recoger " + item.nombre + " x " + item.cantidad;
         }
     }
 
     // Metodo en proceso. Faltan un script pa spawnear objetos
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.tag == "Item" && Input.GetKeyDown(KeyCode.F))
+        if (other.gameObject.tag == "Item")
         {
-            Item item = collision.gameObject.GetComponent<Item>();
-            Item itemAux = addToInventory(item);
-            if (itemAux.cantidad == item.cantidad) { Alerta.text = "Inventario lleno"; }
-            else { Destroy(collision.gameObject); refrescarUi(); }
+            if ( Input.GetKeyUp(KeyCode.F) && !teclaPulsada) {
+                teclaPulsada = true;
+                Item item = other.gameObject.GetComponent<Item>();
+                int cantidadRestante = addToInventory(item);
+                Debug.Log(cantidadRestante);
+                if (cantidadRestante == item.cantidad) { Alerta.text = "Inventario lleno"; }
+                else {
+                    Destroy(other.gameObject);
+                    refrescarUi();
+                    Alerta.text = "";
+                }
+            }
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.tag == "Item")
+        if (other.gameObject.tag == "Item")
         {
             Alerta.text = "";
+            teclaPulsada = false;
         }
     }
 
     //metodo para refrescar la interfaz del inventario
     private void refrescarUi() {
+        Debug.Log("refrescarUi");
         foreach (GameObject slot in slots) {
             slot.GetComponent<Slot>().setEmpty(true);
         }
