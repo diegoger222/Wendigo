@@ -1,0 +1,406 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &943474202581034717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6849858849270696316}
+  - component: {fileID: 5279633050062672898}
+  - component: {fileID: 4906124128559373306}
+  - component: {fileID: -6303296144193863833}
+  m_Layer: 0
+  m_Name: Monton cartuchos
+  m_TagString: Item
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6849858849270696316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943474202581034717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.091, z: -1.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 280196151330375258}
+  - {fileID: 8232477731794254420}
+  - {fileID: 8540901774533220873}
+  - {fileID: 4979352524589462572}
+  - {fileID: 5505416833262503131}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5279633050062672898
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943474202581034717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0.75, z: -0.15}
+--- !u!54 &4906124128559373306
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943474202581034717}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-6303296144193863833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943474202581034717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ef9aae24b5ff4489c52b7b45ebefd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 2
+  nombre: Cartucho
+  tipo: 0
+  descripcion: "Munici\xF3n para tu fiel escopeta"
+  icon: {fileID: 0}
+  stackeable: 0
+  objetoUnico: 0
+  cantidad: 5
+  maxCantidad: 12
+  propiedad: 0
+--- !u!1001 &282953920590329364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6849858849270696316}
+    m_Modifications:
+    - target: {fileID: 1000012510010764, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_Name
+      value: Cartucho escopeta
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.021260917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.011849069
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.85888034
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.51159775
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -118.441
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -2.9360046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180.168
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+--- !u!4 &280196151330375258 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969,
+    type: 3}
+  m_PrefabInstance: {fileID: 282953920590329364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4977607063450731618
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6849858849270696316}
+    m_Modifications:
+    - target: {fileID: 1000012510010764, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_Name
+      value: Cartucho escopeta (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.606
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.31115192
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.22193013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.73306024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.56263155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -74.364
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 130.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 5.269
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+--- !u!4 &4979352524589462572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969,
+    type: 3}
+  m_PrefabInstance: {fileID: 4977607063450731618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5505965614285255829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6849858849270696316}
+    m_Modifications:
+    - target: {fileID: 1000012510010764, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_Name
+      value: Cartucho escopeta (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.50705165
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.49266633
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.49284238
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5072326
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -88.351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90.02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+--- !u!4 &5505416833262503131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969,
+    type: 3}
+  m_PrefabInstance: {fileID: 5505965614285255829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8228524141217925658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6849858849270696316}
+    m_Modifications:
+    - target: {fileID: 1000012510010764, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_Name
+      value: Cartucho escopeta (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7097914
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.68965435
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.09995288
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.10287131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -88.351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -16.493
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+--- !u!4 &8232477731794254420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969,
+    type: 3}
+  m_PrefabInstance: {fileID: 8228524141217925658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8541451715816450631
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6849858849270696316}
+    m_Modifications:
+    - target: {fileID: 1000012510010764, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_Name
+      value: Cartucho escopeta (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8567203
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.45434755
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.21229498
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.12053801
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -56.066
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 27.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 1.398
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8450b3fba93f2e0478311468c3d3e969, type: 3}
+--- !u!4 &8540901774533220873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011355271246, guid: 8450b3fba93f2e0478311468c3d3e969,
+    type: 3}
+  m_PrefabInstance: {fileID: 8541451715816450631}
+  m_PrefabAsset: {fileID: 0}
