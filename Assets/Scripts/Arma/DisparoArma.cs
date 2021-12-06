@@ -128,4 +128,9 @@ public class DisparoArma : MonoBehaviour
     {
         return shotCounter;
     }
+
+    public void CancelRecharge()
+    {
+        recharging = false;
+    }
 }
