@@ -30346,7 +30346,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1da424a848f72d144ab1092e23d54a22,
         type: 3}
       propertyPath: m_RootOrder
-      value: 61
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1da424a848f72d144ab1092e23d54a22,
         type: 3}
@@ -58672,7 +58672,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: efb2c61313e1de944aeb78872111171a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 60
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: efb2c61313e1de944aeb78872111171a,
         type: 3}
@@ -95660,6 +95660,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muro_Ladrillo2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: c116fc5aed1c929428acd5613db6a28b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c116fc5aed1c929428acd5613db6a28b, type: 3}
 --- !u!4 &1943456649 stripped
@@ -100097,7 +100102,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: efb2c61313e1de944aeb78872111171a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 59
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: efb2c61313e1de944aeb78872111171a,
         type: 3}
