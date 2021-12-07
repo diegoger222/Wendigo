@@ -96,10 +96,19 @@ public class Inventario : MonoBehaviour
     public void removeItem(Item item) {
         if (item.stackeable) {
             int index = objetos.FindIndex(x => x.nombre == item.nombre && x.cantidad == item.cantidad);
-            if (objetos[index].cantidad - cantidadDrop <= item.maxCantidad) { objetos.Remove(objetos[index]); }
-            else { objetos[index].cantidad -= cantidadDrop; }
+            if (objetos[index].cantidad - cantidadDrop <= item.maxCantidad) {
+                gameObject.GetComponent<Spawneador_Items>().spawnObject(item, item.cantidad, gameObject.GetComponent<Transform>());
+                objetos.Remove(objetos[index]);
+            }
+            else {
+                objetos[index].cantidad -= cantidadDrop;
+                gameObject.GetComponent<Spawneador_Items>().spawnObject(item, cantidadDrop, gameObject.GetComponent<Transform>());
+            }
         }
-        else { objetos.Remove(item); }
+        else {
+            gameObject.GetComponent<Spawneador_Items>().spawnObject(item, item.cantidad, gameObject.GetComponent<Transform>());
+            objetos.Remove(item);
+        }
         refrescarUi();
     }
 
@@ -175,5 +184,6 @@ public class Inventario : MonoBehaviour
             slot.GetComponent<Slot>().UpdateSlot();
         }
     }
+
 
 }
