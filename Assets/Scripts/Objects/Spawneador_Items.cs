@@ -21,7 +21,7 @@ public class Spawneador_Items : MonoBehaviour
     public void spawnObject(Item item, int cantidad, Transform spawnPoint) {
         GameObject newItem;
 
-        if (item.name == "Cartucho")
+        if (item.nombre == "Cartucho")
         {
             if (cantidad < 5)
             {
@@ -37,42 +37,42 @@ public class Spawneador_Items : MonoBehaviour
                 Destroy(newItem, 200);
             }
         }
-        else if (item.name == "Palo")
+        else if (item.nombre == "Palo")
         {
             newItem = Instantiate(palos, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
             newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
             Destroy(newItem, 200);
         }
-        else if (item.name == "Piedra")
+        else if (item.nombre == "Piedra")
         {
             newItem = Instantiate(piedra, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
             newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
             Destroy(newItem, 200);
         }
-        else if (item.name == "Carne cruda")
+        else if (item.nombre == "Carne cruda")
         {
             newItem = Instantiate(carne_cruda, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
             newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
             Destroy(newItem, 200);
         }
-        else if (item.name == "Carne cocinada")
+        else if (item.nombre == "Carne cocinada")
         {
             newItem = Instantiate(carne_cocinada, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
             newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
             Destroy(newItem, 200);
         }
-        else if (item.name == "Pelaje")
+        else if (item.nombre == "Pelaje")
         {
             newItem = Instantiate(pelaje, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
             newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
             Destroy(newItem, 200);
         }
-        else if (item.name == "Cerilla")
+        else if (item.nombre == "Cerilla")
         {
             newItem = Instantiate(cerilla, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
