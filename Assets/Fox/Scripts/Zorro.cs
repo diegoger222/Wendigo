@@ -108,7 +108,7 @@ public class Zorro : MonoBehaviour
         this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
         anim.SetInteger("Index_wolf", 1);
         anim.SetBool("Correr", true);
-
+       
         this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
 
         if (Bakugou)
@@ -180,27 +180,28 @@ public class Zorro : MonoBehaviour
     void caminar()
     {
 
-
+        GetComponent<NavMeshAgent>().updateRotation = true;
+        GetComponent<NavMeshAgent>().destination = target.position;
         anim.SetInteger("Index_wolf", 1);
-        anim.SetBool("Correr", true); // quitar
-        this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        anim.SetBool("CorrerS", true); // quitar  this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+       // this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
         DistanciaPunto = Vector3.Distance(transform.position, target.position);
         if (DistanciaPunto < 3)
         {
 
+            SiguienteLugar();
+            /*
+             if(target == puntofinal)
+             {
+                 anim.SetBool("CorrerS", false); // quitar
+                 anim.SetInteger("Index_wolf", 0);
+                 anim.SetBool("Sentarse", true);
+             }
+             else
+             {
 
-           
-            if(target == puntofinal)
-            {
-                anim.SetBool("Correr", false); // quitar
-                anim.SetInteger("Index_wolf", 0);
-                anim.SetBool("Sentarse", true);
-            }
-            else
-            {
-                SiguienteLugar();
-            }
-          
+             }
+           */
         }
     }
 
@@ -247,15 +248,15 @@ public class Zorro : MonoBehaviour
 
     void SiguienteLugar()
     {
-        int i = UnityEngine.Random.Range(0, 4);
+        int i = UnityEngine.Random.Range(0, 6);
         switch (i)
         {
             case 0: target = GameObject.Find("1").transform; break;
             case 1: target = GameObject.Find("2").transform; break;
             case 2: target = GameObject.Find("3").transform; break;
             case 3: target = GameObject.Find("4").transform; break;
-            case 4: target = GameObject.Find("1").transform; break;
-            case 5: target = GameObject.Find("1").transform; break;
+            case 4: target = GameObject.Find("5").transform; break;
+            case 5: target = GameObject.Find("6").transform; break;
             case 6: target = GameObject.Find("1").transform; break;
             case 7: target = GameObject.Find("1").transform; break;
             default: target = GameObject.Find("3").transform; break;
