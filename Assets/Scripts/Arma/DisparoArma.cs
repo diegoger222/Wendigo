@@ -10,7 +10,7 @@ public class DisparoArma : MonoBehaviour
     public GameObject pistola;
 
     [Header("Disparo")]
-    public float shotForce = 1500;     //Relacionado con el disparo
+    public float shotForce = 3000;     //Relacionado con el disparo
     public float recoilForce = 4f;
     public float shotRate = 0.6f;
     private float shotRateTime = 0;
@@ -47,7 +47,7 @@ public class DisparoArma : MonoBehaviour
                 AddRecoil();
                 GameObject newBullet;
 
-                int dx, dy;
+                float dx, dy;
                 for (int i = 0; i < 8; i++)    //Se disparan 8 balas, con diferentes desviaciones predefinidas
                 {
                     Desviaciones(i, out dx, out dy);
@@ -97,7 +97,7 @@ public class DisparoArma : MonoBehaviour
         } 
     }
 
-    private void Desviaciones(int i, out int dx, out int dy)
+    private void Desviaciones(int i, out float dx, out float dy)
     {
         switch (i)
         {
@@ -109,7 +109,7 @@ public class DisparoArma : MonoBehaviour
             case 5: dx =  1; dy =  2; break;
             case 6: dx =  2; dy = -1; break;
             case 7: dx =  1; dy = -2; break;
-            default: dx = 0; dy =  0; break;
+            default: dx = Random.Range(0f, 4f)-2; dy = Random.Range(0f, 4f)-2; break;
         }
     }
 
