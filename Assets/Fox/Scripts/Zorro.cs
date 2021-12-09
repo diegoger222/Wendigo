@@ -186,6 +186,7 @@ public class Zorro : MonoBehaviour
         anim.SetBool("CorrerS", true); // quitar  this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
        // this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
         DistanciaPunto = Vector3.Distance(transform.position, target.position);
+        transform.rotation = Quaternion.LookRotation(GetComponent<NavMeshAgent>().velocity.normalized);
         if (DistanciaPunto < 3)
         {
 
