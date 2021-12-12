@@ -52,9 +52,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         if (!empty)
         {
-            if (eventData.button == PointerEventData.InputButton.Left && item.tipo == Item.tipos.consumible) {
-                //metodo para recuperar vida del jugador
-                player.GetComponent<Inventario>().consumirItem(item, 1);
+            if (eventData.button == PointerEventData.InputButton.Left) {
+                if (item.tipo == Item.tipos.consumible)
+                {
+                    player.GetComponent<BarraDeVida>().RestarVida(-item.propiedad);
+                    player.GetComponent<Inventario>().consumirItem(item, 1);
+                }
+                else if (item.tipo == Item.tipos.municion) {
+                    //Funcion para equipar balas
+                    player.GetComponent<Inventario>().consumirItem(item, item.cantidad);
+                }
             }
             else if (eventData.button == PointerEventData.InputButton.Right) {
                 player.GetComponent<Inventario>().removeItem(item);
