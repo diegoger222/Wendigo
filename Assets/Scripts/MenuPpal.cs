@@ -16,10 +16,12 @@ public class MenuPpal : MonoBehaviour
 
     Vector3 rotationEuler = new Vector3(0, 0, 0);
 
+    SoundController soundController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        soundController = GameObject.Find("Canvas").GetComponent<SoundController>();
     }
 
     // Update is called once per frame
@@ -53,5 +55,7 @@ public class MenuPpal : MonoBehaviour
     public void fOpcionesAPpal() { EventSystem.current.SetSelectedGameObject(PpalFirstButton); }
     public void fPpalACreditos() { EventSystem.current.SetSelectedGameObject(CreditosFirstButton); }
     public void fCreditosAPpal() { EventSystem.current.SetSelectedGameObject(PpalFirstButton); }
+
+    public void ActivatedButton() { soundController.PlaySound2(); }
 
 }
