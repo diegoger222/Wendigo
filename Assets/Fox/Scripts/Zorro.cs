@@ -267,5 +267,6 @@ public class Zorro : MonoBehaviour
             case 7: target = GameObject.Find("1").transform; break;
             default: target = GameObject.Find("3").transform; break;
         }
+        GetComponent<NavMeshAgent>().destination = target.position;
     }
 }
