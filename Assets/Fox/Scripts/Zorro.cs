@@ -31,6 +31,11 @@ public class Zorro : MonoBehaviour
         puntofinal = GameObject.Find("2").transform;
         anim = GetComponent<Animator>();
         //anim.SetBool("Sentarse", true);
+        if(tipoZorro == 1)
+        {
+            GetComponent<NavMeshAgent>().destination = target.position;
+            GetComponent<NavMeshAgent>().updateRotation = true;
+        }
     }
     void Awake()
     {
@@ -180,13 +185,13 @@ public class Zorro : MonoBehaviour
     void caminar()
     {
 
-        GetComponent<NavMeshAgent>().updateRotation = true;
-        GetComponent<NavMeshAgent>().destination = target.position;
+        
+        
         anim.SetInteger("Index_wolf", 1);
         anim.SetBool("CorrerS", true); // quitar  this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
        // this.transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
         DistanciaPunto = Vector3.Distance(transform.position, target.position);
-        transform.rotation = Quaternion.LookRotation(GetComponent<NavMeshAgent>().velocity.normalized);
+       transform.rotation = Quaternion.LookRotation(GetComponent<NavMeshAgent>().velocity.normalized);
         if (DistanciaPunto < 3)
         {
 
