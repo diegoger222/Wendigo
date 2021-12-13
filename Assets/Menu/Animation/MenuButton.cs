@@ -23,13 +23,19 @@ public class MenuButton : MonoBehaviour
     {
         if (EventSystem.current.currentSelectedGameObject == button)
         {
-            if(animator.GetBool("Selected") == false) soundController.PlaySound1();
-            animator.SetBool("Selected", true);
+            if (animator.GetBool("Selected") == false)
+            {
+                soundController.PlaySound1();
+                animator.SetBool("Selected", true);
+            }
             
             if (Input.GetAxis("Submit") == 1 || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
             {
-                //if (animator.GetBool("Pressed") == false) soundController.PlaySound2();
-                animator.SetBool("Pressed", true);
+                if (animator.GetBool("Pressed") == false)
+                {
+                    //soundController.PlaySound2();
+                    animator.SetBool("Pressed", true);
+                }
             }
             else if (animator.GetBool("Pressed"))
             {
