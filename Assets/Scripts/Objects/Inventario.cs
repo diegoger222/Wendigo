@@ -42,7 +42,7 @@ public class Inventario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) { inventarioVisible = !inventarioVisible; }
+        if (Input.GetKeyDown(KeyCode.E)) { inventarioVisible = !inventarioVisible; FijarVista(); }
         if (inventarioVisible)
         {
             inventario.SetActive(true);
@@ -184,6 +184,8 @@ public class Inventario : MonoBehaviour
             slot.GetComponent<Slot>().UpdateSlot();
         }
     }
+
+    public void FijarVista() { GameObject.Find("Player").GetComponent<PlayerController>().AdaptLook(); }
 
 
 }

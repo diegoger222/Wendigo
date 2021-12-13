@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     Vector3 moveInput = Vector3.zero;
     Vector3 rotationinput = Vector3.zero;
     CharacterController characterController;
+
+    private bool fijado = false;
     /*
     [Header("GameObjects y esas cosas")]
     public DisparoArma DisparoArma;
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Look();
+        if (!fijado) Look();
         Move();
        // PressedButtons();
     }
@@ -127,4 +129,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F)) {; }   //Acciona con el mapa. Sirve para recoger elementos y/o comerciar.
         if (Input.GetKeyDown(KeyCode.Escape)) {; }  //Menu opciones y/o salir
     }*/
+
+    public void AdaptLook()
+    {
+        fijado = (fijado == false);
+    }
 }
