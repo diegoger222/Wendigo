@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class BarraDeVida : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class BarraDeVida : MonoBehaviour
     public Image barraVida;
 
     public float vidaActual = 80;
-
+    public GameObject pantallaMuerte;
     public float vidaMaxima = 100;
     public bool invencible = false;
     private float damage;
@@ -16,6 +17,17 @@ public class BarraDeVida : MonoBehaviour
     void Update()
     {
         barraVida.fillAmount = vidaActual / vidaMaxima;
+
+        if(Input.GetKeyDown("return")&& pantallaMuerte.activeSelf)
+        {
+            SceneManager.LoadSceneAsync("MenuV2");
+            
+        }
+    }
+
+    private void Start()
+    {
+        pantallaMuerte.SetActive(false);
     }
 
     public void RestarVida(int cantidad)
@@ -27,8 +39,13 @@ public class BarraDeVida : MonoBehaviour
             vidaActual -= cantidad;
            // StartCoroutine(FrenarNasus());
 
-            if (vidaActual < 0)
+            if (vidaActual  <= 0)
             {
+                Time.timeScale = 0;
+                pantallaMuerte.SetActive(true);
+                GameObject.Find("HUD").SetActive(false);
+                GameObject.Find("ArmaPosicion").SetActive(false);
+                Debug.Log("Has muerto");
 
             }
             if (vidaActual > 100)
