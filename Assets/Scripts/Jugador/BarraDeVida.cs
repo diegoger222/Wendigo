@@ -20,6 +20,7 @@ public class BarraDeVida : MonoBehaviour
 
         if(Input.GetKeyDown("return")&& pantallaMuerte.activeSelf)
         {
+            Time.timeScale = 1;
             SceneManager.LoadSceneAsync("MenuV2");
             
         }
@@ -46,6 +47,7 @@ public class BarraDeVida : MonoBehaviour
                 GameObject.Find("HUD").SetActive(false);
                 GameObject.Find("ArmaPosicion").SetActive(false);
                 Debug.Log("Has muerto");
+           
 
             }
             if (vidaActual > 100)
