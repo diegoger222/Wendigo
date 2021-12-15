@@ -133,4 +133,8 @@ public class DisparoArma : MonoBehaviour
     {
         recharging = false;
     }
+    public void AnadirBalas(int cantidad)
+    {
+        Ammo += cantidad;
+    }
 }
