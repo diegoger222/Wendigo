@@ -33,6 +33,13 @@ public class manejadorEventos : MonoBehaviour
         escopeta = GameObject.FindGameObjectWithTag("Escopeta");
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && nota1.activeSelf) {
+            activarEvento1();
+        }
+    }
+
     public void activarEvento1() {
         Debug.Log("Xd");
         evento1.SetActive(false);
