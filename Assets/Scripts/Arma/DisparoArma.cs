@@ -24,11 +24,13 @@ public class DisparoArma : MonoBehaviour
     public bool NoAmmo = false;
     public bool recharging = false;
 
+    SonidoArma sonidoArma;
+
 
     // Update is called once per frame
     private void Start()
     {
-
+        sonidoArma = GetComponent<SonidoArma>();
         Ammo = 100;
     }
     private void Update()
@@ -43,6 +45,7 @@ public class DisparoArma : MonoBehaviour
         {
             if (shotCounter>0 && !recharging && Time.time > shotRateTime && pistola.activeSelf)
             {
+                sonidoArma.PlaySoundShot();
                 //Vector3 a = transform.localPosition;
                 AddRecoil();
                 GameObject newBullet;
@@ -80,7 +83,7 @@ public class DisparoArma : MonoBehaviour
     //! Metodos Auxiliares
     public void Recharge() //Si ya estas recargando, no queda municion o tienes a tope las balas, no empiezas a recargar.
     { 
-        if (!recharging && !NoAmmo && shotCounter != numberOfShots) { rechargeRateTime = Time.time + rechargeRate; recharging = true; }  
+        if (!recharging && !NoAmmo && shotCounter != numberOfShots) { rechargeRateTime = Time.time + rechargeRate; recharging = true; sonidoArma.PlaySoundRecharge(); }  
     }
 
     private void UpdateRecharge() //Cuando pase el tiempo establecido, se completara la recarga.
