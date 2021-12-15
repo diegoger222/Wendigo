@@ -56,6 +56,6 @@ public class MenuPpal : MonoBehaviour
     public void fPpalACreditos() { EventSystem.current.SetSelectedGameObject(CreditosFirstButton); }
     public void fCreditosAPpal() { EventSystem.current.SetSelectedGameObject(PpalFirstButton); }
 
-    public void ActivatedButton() { soundController.PlaySound2(); }
+    public void ActivatedButton() { soundController.PlaySound2(); soundController.InvertDisableOnce(); }
 
 }

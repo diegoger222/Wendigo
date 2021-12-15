@@ -274,6 +274,8 @@ GameObject:
   m_Component:
   - component: {fileID: 101921297}
   - component: {fileID: 101921298}
+  - component: {fileID: 101921300}
+  - component: {fileID: 101921299}
   m_Layer: 0
   m_Name: Slider Volumen
   m_TagString: Untagged
@@ -354,6 +356,37 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &101921299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101921296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f04a60f218311c4a913ec4521d24b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &101921300
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101921296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8fdfb0a879b4b8944bc5092913dafddb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &125062625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,6 +2401,8 @@ GameObject:
   m_Component:
   - component: {fileID: 871900197}
   - component: {fileID: 871900198}
+  - component: {fileID: 871900200}
+  - component: {fileID: 871900199}
   m_Layer: 0
   m_Name: Slider Brillo
   m_TagString: Untagged
@@ -2448,6 +2483,37 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &871900199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871900196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f04a60f218311c4a913ec4521d24b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &871900200
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871900196}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8fdfb0a879b4b8944bc5092913dafddb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &884095223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4773,8 +4839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableOnce: 0
-  aud1: {fileID: 8300000, guid: f7a8fcb7fbc3b274b8f5c195c37a42af, type: 3}
-  aud2: {fileID: 8300000, guid: d82f038ce3487464abd99ae1260cb41c, type: 3}
+  aud1: {fileID: 8300000, guid: f7cacde4f8ccc9f41bf3bd14f06c24be, type: 3}
+  aud2: {fileID: 8300000, guid: 2e887e4da0fd6b7498a0061c08fb1831, type: 3}
 --- !u!1 &1971176074
 GameObject:
   m_ObjectHideFlags: 0
