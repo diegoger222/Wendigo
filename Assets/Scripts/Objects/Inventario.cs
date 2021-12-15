@@ -24,12 +24,14 @@ public class Inventario : MonoBehaviour
     private bool inventarioVisible;
     private bool teclaPulsada;
     private GameObject escopeta;
+    private GameObject player;
 
 
     void Start()
     {
         numeroSlots = SlotsHolder.transform.childCount;
         escopeta = GameObject.FindGameObjectWithTag("Escopeta");
+        player = GameObject.FindGameObjectWithTag("Player");
         slots = new List<GameObject>();
         objetos = new List<Item>();
         objetosUnicos = new List<Item>();
@@ -47,7 +49,7 @@ public class Inventario : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            inventarioVisible = !inventarioVisible; FijarVista();
+            inventarioVisible = !inventarioVisible;
             if (inventarioVisible)
             {
                 inventario.SetActive(true);
@@ -62,6 +64,7 @@ public class Inventario : MonoBehaviour
                 Cursor.visible = false;
                 escopeta.SetActive(true);
             }
+            FijarVistaYNoRecarga();
         }
     }
 
@@ -194,7 +197,7 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    public void FijarVista() { GameObject.Find("Player").GetComponent<PlayerController>().AdaptLook(); }
+    public void FijarVistaYNoRecarga() { player.GetComponent<PlayerController>().AdaptLook(); escopeta.GetComponent<DisparoArma>().CancelRecharge(); }
 
 
 }
