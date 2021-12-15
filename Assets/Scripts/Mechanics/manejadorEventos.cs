@@ -13,28 +13,38 @@ public class manejadorEventos : MonoBehaviour
     [SerializeField]
     private Text mision;
     [SerializeField]
-    private GameObject indicador1;
+    private GameObject evento1;
     [SerializeField]
-    private GameObject indicador2;
+    private GameObject evento2;
+    [SerializeField]
+    private GameObject evento3;
     [SerializeField]
     private Text alerta;
+    private bool keyPressed;
+    private GameObject escopeta;
 
     void Start()
     {
         nota1.SetActive(false);
         nota2.SetActive(false);
-        indicador1.SetActive(false);
-        indicador2.SetActive(false);
+        evento2.SetActive(false);
+        evento3.SetActive(false);
+        keyPressed = false;
+        escopeta = GameObject.FindGameObjectWithTag("Escopeta");
     }
 
     public void activarEvento1() {
-        indicador1.SetActive(true);
+        Debug.Log("Xd");
+        evento1.SetActive(false);
+        evento2.SetActive(true);
         nota1.SetActive(false);
+        escopeta.SetActive(true);
         gameObject.GetComponent<PlayerController>().AdaptLook();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mision.text = "Viaja al pueblo y reunete con el viejo Clark";
         alerta.text = "";
+        keyPressed = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,16 +56,22 @@ public class manejadorEventos : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.name == "evento1" && Input.GetKeyDown(KeyCode.F))
+        if (other.gameObject.name == "evento1" && Input.GetKeyDown(KeyCode.F) && !keyPressed)
         {
-            nota1.SetActive(true);
+            keyPressed = true;
+            escopeta.SetActive(false);
             gameObject.GetComponent<PlayerController>().AdaptLook();
-            Cursor.lockState = CursorLockMode.Confined;
+            Debug.Log("chorizo");
+            //Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            alerta.text = "";
+            nota1.SetActive(true);
         }
-        else if (other.gameObject.name == "evento2" && Input.GetKeyDown(KeyCode.F))
+        else if (other.gameObject.name == "evento2" && Input.GetKeyDown(KeyCode.F) && !keyPressed)
         {
+            keyPressed = true;
             nota2.SetActive(true);
+            escopeta.SetActive(false);
             gameObject.GetComponent<PlayerController>().AdaptLook();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
@@ -67,9 +83,11 @@ public class manejadorEventos : MonoBehaviour
 
     public void activarEvento2()
     {
-        indicador1.SetActive(false);
-        indicador2.SetActive(true);
+        keyPressed = false;
+        evento2.SetActive(false);
+        evento3.SetActive(true);
         nota2.SetActive(false);
+        escopeta.SetActive(true);
         gameObject.GetComponent<PlayerController>().AdaptLook();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -78,7 +96,7 @@ public class manejadorEventos : MonoBehaviour
     }
 
     public void activarEvento3() {
-        indicador2.SetActive(false);
+        evento3.SetActive(false);
         mision.text = "Sobrevive y regresa a tu cabaña!";
     }
 

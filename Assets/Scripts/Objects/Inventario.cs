@@ -37,6 +37,7 @@ public class Inventario : MonoBehaviour
         for (int i = 0; i < numeroSlots; i++) {
             slots.Add(SlotsHolder.transform.GetChild(i).gameObject);
         }
+        inventario.SetActive(false);
         inventarioVisible = false;
         teclaPulsada = false;
     }
@@ -44,19 +45,23 @@ public class Inventario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) { inventarioVisible = !inventarioVisible; FijarVista(); }
-        if (inventarioVisible)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            inventario.SetActive(true);
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            escopeta.SetActive(false);
-        }
-        else {
-            inventario.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            escopeta.SetActive(true);
+            inventarioVisible = !inventarioVisible; FijarVista();
+            if (inventarioVisible)
+            {
+                inventario.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+                escopeta.SetActive(false);
+            }
+            else
+            {
+                inventario.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                escopeta.SetActive(true);
+            }
         }
     }
 
