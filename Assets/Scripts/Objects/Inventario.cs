@@ -23,15 +23,17 @@ public class Inventario : MonoBehaviour
     //variable para sacar y ocultar el inventario
     private bool inventarioVisible;
     private bool teclaPulsada;
+    private GameObject escopeta;
 
 
     void Start()
     {
         numeroSlots = SlotsHolder.transform.childCount;
+        escopeta = GameObject.FindGameObjectWithTag("Escopeta");
         slots = new List<GameObject>();
         objetos = new List<Item>();
         objetosUnicos = new List<Item>();
-        objetosUnicos.Add(GameObject.FindGameObjectWithTag("Escopeta").GetComponent<Item>());
+        objetosUnicos.Add(escopeta.GetComponent<Item>());
         for (int i = 0; i < numeroSlots; i++) {
             slots.Add(SlotsHolder.transform.GetChild(i).gameObject);
         }
@@ -48,11 +50,13 @@ public class Inventario : MonoBehaviour
             inventario.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            escopeta.SetActive(false);
         }
         else {
             inventario.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            escopeta.SetActive(true);
         }
     }
 
@@ -116,7 +120,7 @@ public class Inventario : MonoBehaviour
         if (item.stackeable) {
             int index = objetos.FindIndex(x => x.nombre == item.nombre && x.cantidad == item.cantidad);
             if (objetos[index].cantidad - cantidad <= item.maxCantidad) { objetos.Remove(objetos[index]); }
-            else { objetos[index].cantidad -= cantidadDrop; }
+            else { objetos[index].cantidad -= cantidad; }
         }
         else { objetos.Remove(item); }
         refrescarUi();

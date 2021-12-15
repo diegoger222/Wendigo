@@ -59,7 +59,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                     player.GetComponent<Inventario>().consumirItem(item, 1);
                 }
                 else if (item.tipo == Item.tipos.municion) {
-                    //Funcion para equipar balas
+                    Debug.Log("Isecacaseca");
+                    GameObject.FindGameObjectWithTag("Escopeta").GetComponent<DisparoArma>().AnadirBalas(item.cantidad);
                     player.GetComponent<Inventario>().consumirItem(item, item.cantidad);
                 }
             }

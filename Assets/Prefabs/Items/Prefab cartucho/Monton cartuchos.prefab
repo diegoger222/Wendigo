@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   nombre: Cartucho
-  tipo: 0
+  tipo: 3
   descripcion: "Munici\xF3n para tu fiel escopeta"
   icon: {fileID: 21300000, guid: bc30a1b1fb95b5c44a1ea9197d71307c, type: 3}
   stackeable: 1
