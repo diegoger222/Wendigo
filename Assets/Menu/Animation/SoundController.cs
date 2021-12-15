@@ -16,19 +16,12 @@ public class SoundController : MonoBehaviour
 
     public void PlaySound1()
     {
-        if (!disableOnce)
-        {
-            audioSource.PlayOneShot(aud1, 1f);
-        }
+        audioSource.PlayOneShot(aud1, 1f);
     }
 
     public void PlaySound2()
     {
-        if (!disableOnce)
-        {
-            audioSource.PlayOneShot(aud2, 1f);
-        }
-
+        audioSource.PlayOneShot(aud2, 1f);
     }
 
     public bool GetDisableOnce()
