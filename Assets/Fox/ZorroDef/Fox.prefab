@@ -105,6 +105,7 @@ MonoBehaviour:
   vidaActual: 100
   vidaMaxima: 100
   barraVida: {fileID: 3856503700374056126}
+  carne: {fileID: 340864798174003464, guid: ccc7b54f973314845af66d11aa9878b2, type: 3}
 --- !u!114 &3856503699701017526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +123,8 @@ MonoBehaviour:
   DistanciaTeReviento: 20
   Bakugou: 1
   tipoZorro: 0
+  BufeoNasus: 0
+  damage: 20
 --- !u!114 &3856503699701017527
 MonoBehaviour:
   m_ObjectHideFlags: 0

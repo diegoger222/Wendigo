@@ -14,7 +14,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private GameObject player;
     [SerializeField]
     private Sprite spriteVacio;
-    
+    private GameObject escopeta;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         quantityText = transform.GetChild(1);
         empty = true;
         UpdateSlot();
+        escopeta = GameObject.FindGameObjectWithTag("Escopeta");
     }
 
     public void UpdateSlot() {
@@ -60,7 +63,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 }
                 else if (item.tipo == Item.tipos.municion) {
                     Debug.Log("Isecacaseca");
-                    GameObject.FindGameObjectWithTag("Escopeta").GetComponent<DisparoArma>().AnadirBalas(item.cantidad);
+                    escopeta.GetComponent<DisparoArma>().AnadirBalas(item.cantidad);
                     player.GetComponent<Inventario>().consumirItem(item, item.cantidad);
                 }
             }

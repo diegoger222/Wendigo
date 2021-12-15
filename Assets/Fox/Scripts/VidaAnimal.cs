@@ -12,7 +12,7 @@ public class VidaAnimal : MonoBehaviour
 
     public float vidaMaxima = 100;
     public Image barraVida;
-
+    public GameObject carne;
     private  Animator anim;
 
     void Awake()
@@ -50,7 +50,9 @@ public class VidaAnimal : MonoBehaviour
     IEnumerator Muerte()
     {
         yield return new WaitForSeconds(3);
+
         Destroy(this.gameObject);
+        GameObject.Find("Player").GetComponent<Spawneador_Items>().spawnObject(carne.GetComponent<Item>(), 1, gameObject.transform);
     }
   
 }
