@@ -23,9 +23,12 @@ public class MenuButton : MonoBehaviour
     {
         if (EventSystem.current.currentSelectedGameObject == button)
         {
+            
             if (animator.GetBool("Selected") == false)
             {
-                soundController.PlaySound1();
+                if(soundController.GetDisableOnce() == false) { soundController.PlaySound1();}
+                else { soundController.InvertDisableOnce(); }
+
                 animator.SetBool("Selected", true);
             }
             
@@ -43,6 +46,11 @@ public class MenuButton : MonoBehaviour
             }            
         }
         else { animator.SetBool("Selected", false); }
+    }
+
+    void CallPlaySound1()
+    {
+        soundController.PlaySound1();
     }
 
     void CallPlaySound2()

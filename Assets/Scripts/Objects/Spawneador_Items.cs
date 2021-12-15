@@ -51,11 +51,11 @@ public class Spawneador_Items : MonoBehaviour
             newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
             Destroy(newItem, 200);
         }
-        else if (item.nombre == "Carne cruda")
+        else if (item.nombre == "Carne")
         {
             newItem = Instantiate(carne_cruda, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
-            newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
+           // newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
             Destroy(newItem, 200);
         }
         else if (item.nombre == "Carne cocinada")

@@ -30,4 +30,14 @@ public class SoundController : MonoBehaviour
         }
 
     }
+
+    public bool GetDisableOnce()
+    {
+        return disableOnce;
+    }
+
+    public void InvertDisableOnce()
+    {
+        disableOnce = !disableOnce;
+    }
 }
