@@ -26,6 +26,10 @@ public class DamagePrueba : MonoBehaviour
             Debug.Log("Esto es un popu");
         }
         */
+        if(other.tag == "Wendigo")
+        {
+            other.GetComponent<Wendi>().RecibirDamage();
+        }
  
     }
   

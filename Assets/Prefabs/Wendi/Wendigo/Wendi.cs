@@ -14,6 +14,8 @@ public class Wendi : MonoBehaviour
     bool nerfVoli = false;
     bool atacando = false;
     bool grito = false;
+    bool damage = false;
+    bool timedamage = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class Wendi : MonoBehaviour
     void Update()
     {
         DistanciaConJugador = Vector3.Distance(transform.position, player.position);
-        if ((DistanciaConJugador < DistanciaTeReviento) && !grito)
+        if ((DistanciaConJugador < DistanciaTeReviento) && !grito && !damage)
         {
 
             Reventar();
@@ -39,7 +41,7 @@ public class Wendi : MonoBehaviour
             GetComponent<NavMeshAgent>().speed = 0;
 
         }
-        if ((DistanciaConJugador < DistanciaTeReviento)){
+        if ((DistanciaConJugador < DistanciaTeReviento)&& !damage){
             this.transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
         }
         if (Input.GetKeyDown("h"))
@@ -105,6 +107,7 @@ public class Wendi : MonoBehaviour
         nerfVoli= true;
         atacando = true;
         yield return new WaitForSeconds(1.25f);
+        DistanciaConJugador = Vector3.Distance(transform.position, player.position);
         if (DistanciaConJugador < 10)
         {
             GameObject.Find("Player").GetComponent<BarraDeVida>().RestarVida(70);
@@ -124,6 +127,33 @@ public class Wendi : MonoBehaviour
         anim.SetBool("Grito", false);
         grito = false;
 
+    }
+
+    public void RecibirDamage()
+    {
+        StartCoroutine(Recibir());
+    }
+
+    IEnumerator Recibir()
+    {
+        if (!timedamage)
+        {
+            StartCoroutine(TimeDama());
+            damage = true;
+            anim.SetBool("Andar", false);
+            anim.SetBool("Correr", false);
+            GetComponent<NavMeshAgent>().speed = 0;
+            yield return new WaitForSeconds(2);
+
+            damage = false;
+        }
+
+    }
+    IEnumerator TimeDama()
+    {
+        timedamage = true;
+        yield return new WaitForSeconds(5);
+        timedamage = false;
     }
 
 }

@@ -9,6 +9,7 @@ TagManager:
   - Animal
   - Bala
   - Item
+  - Wendigo
   layers:
   - Default
   - TransparentFX
