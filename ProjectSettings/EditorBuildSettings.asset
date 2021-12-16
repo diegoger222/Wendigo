@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneRebuild.unity
     guid: 0309bd3649f34e4498f3ea2fe155321f
+  - enabled: 1
+    path: Assets/Scenes/Nightt.unity
+    guid: 219200627a4532349ab5b2b657fc848e
   m_configObjects: {}

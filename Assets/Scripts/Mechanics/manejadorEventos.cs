@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class manejadorEventos : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class manejadorEventos : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && nota1.activeSelf) {
             activarEvento1();
+        }
+        if (Input.GetKeyDown("0"))
+        {
+            SceneManager.LoadScene("Nightt");
         }
     }
 
@@ -105,10 +110,18 @@ public class manejadorEventos : MonoBehaviour
     public void activarEvento3() {
         evento3.SetActive(false);
         mision.text = "Sobrevive y regresa a tu cabaña!";
+        //SleepTimeout(3);
+        StartCoroutine(EsperarSegundos());
     }
 
     //metodo para activar todo lo relacionado con la noche y desactivar cosas del día
     private void canvioHorario() { }
 
 
+
+    IEnumerator EsperarSegundos()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Nightt");
+    }
 }
