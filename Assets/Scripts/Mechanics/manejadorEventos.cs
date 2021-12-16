@@ -66,6 +66,14 @@ public class manejadorEventos : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "evento1" | other.gameObject.name == "evento2")
+        {
+            alerta.text = "";
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "evento1" && Input.GetKeyDown(KeyCode.F) && !keyPressed)
