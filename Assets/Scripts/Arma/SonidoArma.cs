@@ -23,10 +23,4 @@ public class SonidoArma : MonoBehaviour
     {
         audioSource.PlayOneShot(aud2, 1f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -7,6 +7,12 @@ public class Balanceo : MonoBehaviour
     // Start is called before the first frame update
     private Quaternion startRotation;
 
+    //Inicio balanceo escopeta al andar
+    private float valor = 0f;
+    private float limite = -5f;
+    private float incremento = 0.2f;
+    //Fin balanceo escopeta al andar
+
     public float swayAmount = 8;
     void Start()
     {
@@ -24,11 +30,24 @@ public class Balanceo : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        Quaternion xAngle = Quaternion.AngleAxis(mouseX * -1.5f, Vector3.up);
+        //Inicio balanceo escopeta al andar
+        float ejex = Input.GetAxis("Horizontal");
+        float ejey = Input.GetAxis("Vertical");
 
-        Quaternion yAngle = Quaternion.AngleAxis(mouseY * 1.5f, Vector3.right);
+        if (ejex == 0 && ejey == 0) { valor = limite; }
+        else if (valor < limite || valor > 0) { incremento = -incremento; valor += incremento; }
+        else { valor += incremento; }
 
-        Quaternion targetRotation = startRotation * xAngle * yAngle;
+        Quaternion xmAngle = Quaternion.AngleAxis(ejex * valor, Vector3.up);        
+
+        Quaternion ymAngle = Quaternion.AngleAxis(ejey * valor, Vector3.back);
+        //Fin balanceo escopeta al andar
+
+        Quaternion xAngle = Quaternion.AngleAxis(mouseX * -3f, Vector3.up);
+
+        Quaternion yAngle = Quaternion.AngleAxis(mouseY * 5f, Vector3.back);
+
+        Quaternion targetRotation = startRotation * xAngle * yAngle * xmAngle * ymAngle;
 
         transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * swayAmount);
     }

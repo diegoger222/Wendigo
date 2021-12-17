@@ -13,6 +13,7 @@ public class BarraDeVida : MonoBehaviour
     public float vidaMaxima = 100;
     public bool invencible = false;
     private float damage;
+    private SonidoJugador sonidoJugador;
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +30,7 @@ public class BarraDeVida : MonoBehaviour
     private void Start()
     {
         pantallaMuerte.SetActive(false);
+        sonidoJugador = GetComponent<SonidoJugador>();
     }
 
     public void RestarVida(int cantidad)
@@ -36,12 +38,13 @@ public class BarraDeVida : MonoBehaviour
         //damage = cantidad;
         if (!invencible && vidaActual > 0)
         {
-
+            sonidoJugador.PlaySoundDolor();
             vidaActual -= cantidad;
            // StartCoroutine(FrenarNasus());
 
             if (vidaActual  <= 0)
             {
+                sonidoJugador.PlaySoundMuerte();
                 Time.timeScale = 0;
                 pantallaMuerte.SetActive(true);
                 GameObject.Find("HUD").SetActive(false);
