@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static Wendigo;
+
 public class DisparoArma : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -46,6 +48,9 @@ public class DisparoArma : MonoBehaviour
             if (shotCounter>0 && !recharging && Time.time > shotRateTime && pistola.activeSelf)
             {
                 sonidoArma.PlaySoundShot();
+
+                Wendigo.detect_player(true);
+
                 //Vector3 a = transform.localPosition;
                 AddRecoil();
                 GameObject newBullet;

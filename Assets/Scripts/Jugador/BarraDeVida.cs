@@ -33,18 +33,18 @@ public class BarraDeVida : MonoBehaviour
         sonidoJugador = GetComponent<SonidoJugador>();
     }
 
-    public void RestarVida(int cantidad)
+    public void RestarVida(float cantidad)
     {
         //damage = cantidad;
         if (!invencible && vidaActual > 0)
         {
-            sonidoJugador.PlaySoundDolor();
+            //sonidoJugador.PlaySoundDolor();
             vidaActual -= cantidad;
            // StartCoroutine(FrenarNasus());
 
             if (vidaActual  <= 0)
             {
-                sonidoJugador.PlaySoundMuerte();
+                //sonidoJugador.PlaySoundMuerte();
                 Time.timeScale = 0;
                 pantallaMuerte.SetActive(true);
                 GameObject.Find("HUD").SetActive(false);

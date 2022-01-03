@@ -6,6 +6,7 @@ public class DamagePrueba : MonoBehaviour
 {
     // Start is called before the first frame update
     public int damage = 30;
+    public float stunSec = 1.5f;
  
     
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class DamagePrueba : MonoBehaviour
         */
         if(other.tag == "Wendigo")
         {
-            other.GetComponent<Wendi>().RecibirDamage();
+            other.GetComponent<Wendigo>().receive_damage(damage, stunSec);
         }
  
     }

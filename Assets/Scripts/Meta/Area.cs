@@ -117,58 +117,7 @@ public class Area : MonoBehaviour
         }
     }
 
-
-    //
-
-    private void OnMouseEnter() {
-        if(Spheres == null){
-            Renderer rend = GetComponent<Renderer>();
-            rend.material.color = Color.blue;
-            Vector3[] vertices = GetComponent<MeshFilter>().mesh.vertices;
-            Vector3[] verts = removeDuplicates(vertices);
-            Spheres = new GameObject[verts.Length];
-            
-            drawSpheres(verts);
-        } else {
-            foreach (GameObject sphere in Spheres)
-            {
-                sphere.SetActive(true);
-            }
-        }
-    }
-
-    private void OnMouseExit() {
-        foreach (GameObject sphere in Spheres)
-        {
-            sphere.SetActive(false);
-        }
-    }
-
-    private Vector3[] removeDuplicates(Vector3[] dupArray) {
-        Vector3[] newArray = new Vector3[8];  //change 8 to a variable dependent on shape
-        bool isDup = false;
-        int newArrayIndex = 0;
-        for (int i = 0; i < dupArray.Length; i++) {
-            for (int j = 0; j < newArray.Length; j++) {
-                if (dupArray[i] == newArray[j]) {
-                    isDup = true;
-                }
-            }
-            if (!isDup) {
-                newArray[newArrayIndex] = dupArray[i];
-                newArrayIndex++;
-                isDup = false;
-            }
-        }
-        return newArray;
-    }
-
-    GameObject[] Spheres;
-    private void drawSpheres(Vector3[] verts) {
-        for (int i = 0; i < verts.Length; i++) {
-            Spheres[i] = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            Spheres[i].transform.position = verts[i];
-            Spheres[i].transform.localScale -= new Vector3(0.8F, 0.8F, 0.8F);
-        }
+    public Vector3 get_random_point(){
+        return Vector3.zero;
     }
 }
