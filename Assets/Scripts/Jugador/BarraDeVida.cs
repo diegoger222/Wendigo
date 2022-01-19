@@ -38,8 +38,9 @@ public class BarraDeVida : MonoBehaviour
         //damage = cantidad;
         if (!invencible && vidaActual > 0)
         {
-            if(cantidad >= 0)
-            sonidoJugador.PlaySoundDolor();
+            if(cantidad >= 0) sonidoJugador.PlaySoundDolor();
+            else sonidoJugador.PlaySoundComer();
+
             vidaActual -= cantidad;
            // StartCoroutine(FrenarNasus());
 
