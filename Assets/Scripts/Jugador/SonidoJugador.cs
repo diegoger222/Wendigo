@@ -8,6 +8,7 @@ public class SonidoJugador : MonoBehaviour
     public AudioClip aud1;
     public AudioClip aud2;
     public AudioClip aud3;
+    public AudioClip aud4;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,11 @@ public class SonidoJugador : MonoBehaviour
     public void PlaySoundMuerte()
     {
         audioSource.PlayOneShot(aud3, 2f);
+    }
+
+    public void PlaySoundComer()
+    {
+        audioSource.PlayOneShot(aud4, 2f);
     }
 
     //public void StopPlayAllSounds()
