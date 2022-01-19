@@ -18,12 +18,17 @@ public class SonidoJugador : MonoBehaviour
     public void PlaySoundDolor()
     {
         int valor = Random.Range(0, 2);
-        if (valor == 0) { audioSource.PlayOneShot(aud1, 1f); }
-        else { audioSource.PlayOneShot(aud2, 1f); }
+        if (valor == 0) { audioSource.PlayOneShot(aud1, 2f); }
+        else { audioSource.PlayOneShot(aud2, 2f); }
     }
 
     public void PlaySoundMuerte()
     {
-        audioSource.PlayOneShot(aud3, 1f);
+        audioSource.PlayOneShot(aud3, 2f);
     }
+
+    //public void StopPlayAllSounds()
+    //{
+    //    audioSource.Stop();
+    //}
 }
