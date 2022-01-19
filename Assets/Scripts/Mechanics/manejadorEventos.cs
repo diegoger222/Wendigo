@@ -36,8 +36,12 @@ public class manejadorEventos : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && nota1.activeSelf) {
+        if (Input.GetKeyDown(KeyCode.Return) && nota1.activeSelf) {
             activarEvento1();
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && nota2.activeSelf)
+        {
+            activarEvento2();
         }
         if (Input.GetKeyDown("0"))
         {
@@ -83,7 +87,7 @@ public class manejadorEventos : MonoBehaviour
             gameObject.GetComponent<PlayerController>().AdaptLook();
             Debug.Log("chorizo");
             //Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
+            // Cursor.visible = true;
             alerta.text = "";
             nota1.SetActive(true);
         }
@@ -93,8 +97,8 @@ public class manejadorEventos : MonoBehaviour
             nota2.SetActive(true);
             escopeta.SetActive(false);
             gameObject.GetComponent<PlayerController>().AdaptLook();
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
+            // Cursor.lockState = CursorLockMode.Confined;
+            // Cursor.visible = true;
         }
         else if (other.gameObject.name == "evento3") {
             activarEvento3();

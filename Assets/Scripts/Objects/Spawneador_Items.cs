@@ -56,7 +56,7 @@ public class Spawneador_Items : MonoBehaviour
             newItem = Instantiate(carne_cruda, spawnPoint.position, spawnPoint.rotation);
             newItem.GetComponent<Item>().cantidad = cantidad;
            // newItem.GetComponent<Rigidbody>().AddForce(spawnPoint.right * spawnforce, ForceMode.Impulse);
-            Destroy(newItem, 200);
+           // Destroy(newItem, 200);
         }
         else if (item.nombre == "Carne cocinada")
         {

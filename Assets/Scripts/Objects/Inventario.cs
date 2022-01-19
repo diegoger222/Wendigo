@@ -165,8 +165,8 @@ public class Inventario : MonoBehaviour
                 if (cantidadRestante == item.cantidad) { Alerta.text = "Inventario lleno"; }
                 else {
                     Destroy(other.gameObject);
-                    refrescarUi();
                     Alerta.text = "";
+                    refrescarUi();
                 }
             }
         }
