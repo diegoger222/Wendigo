@@ -49,7 +49,7 @@ public class DisparoArma : MonoBehaviour
             {
                 sonidoArma.PlaySoundShot();
 
-                Wendigo.detect_player(true);
+                //Wendigo.detect_player(true);
 
                 //Vector3 a = transform.localPosition;
                 AddRecoil();
